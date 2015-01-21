@@ -9,15 +9,24 @@ public enum PE_GravType {
 }
 
 public enum PE_Collider {
-	floor,
-	cube,
-	megaman
+	sphere,
+	aabb
+}
+
+public enum PE_Dir { // The direction in which the PE_Obj is moving
+	still,
+	up,
+	down,
+	upRight,
+	downRight,
+	downLeft,
+	upLeft
 }
 
 public class PhysEngine : MonoBehaviour {
 	static public List<PE_Obj>	objs;
 	
-	static public Vector3		gravity = new Vector3(0,-15f,0);
+	public Vector3		gravity = new Vector3(0,-9.8f,0);
 	
 	// Use this for initialization
 	void Awake() {
@@ -53,15 +62,31 @@ public class PhysEngine : MonoBehaviour {
 		po.vel0 = po.vel;
 		Vector3 tAcc = po.acc;
 		switch (po.grav) {
-			case PE_GravType.constant:
-				tAcc += gravity;
-				break;
+		case PE_GravType.constant:
+			tAcc += gravity;
+			break;
 		}
 		po.vel += tAcc * dt;
+		
+		if (po.vel.x==0) { // Special case when po.vel.x == 0
+			if (po.vel.y > 0) {
+				po.dir = PE_Dir.up;
+			} else {
+				po.dir = PE_Dir.down;
+			}
+		} else if (po.vel.x>0 && po.vel.y>0) {
+			po.dir = PE_Dir.upRight;
+		} else if (po.vel.x>0 && po.vel.y<=0) {
+			po.dir = PE_Dir.downRight;
+		} else if (po.vel.x<0 && po.vel.y<=0) {
+			po.dir = PE_Dir.downLeft;
+		} else if (po.vel.x<0 && po.vel.y>0) {
+			po.dir = PE_Dir.upLeft;
+		}
 		
 		// Position
 		po.pos1 = po.pos0 = po.transform.position;
 		po.pos1 += po.vel * dt;
+		
 	}
 }
-
