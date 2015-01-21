@@ -158,12 +158,12 @@ public class MegaMan : MonoBehaviour {
 		//		} else { 
 		//			facingRight = false; // positive magnitude means Mega Man is facing left
 		//		}
-
+		
 		/*
 		float vY = Input.GetAxis("Vertical");
 		vel.y = vY * jumpVel;
 			*/
-
+		
 		// Jumping with A (which is x or .)
 		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Period)) {
 			// Jump if you're grounded
