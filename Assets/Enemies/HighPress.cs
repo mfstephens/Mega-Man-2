@@ -50,6 +50,8 @@ public class HighPress: MonoBehaviour{
 					downward_accel = init_down_accel;
 					frames_passed = 0f;
 					my_renderer [11].enabled = true;
+					my_renderer [10].enabled = true;
+					my_renderer [9].enabled = true;
 				}
 
 				this.transform.position = temp_pos; // update press position
