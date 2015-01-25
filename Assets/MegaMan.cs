@@ -8,7 +8,9 @@ public class MegaMan : MonoBehaviour {
 	public bool		grounded = false;
 	private bool facingRight, jumping;
 	Animator anim;
-	
+
+	public GameObject blasterPrefab;
+	public float shootingSpeed = 2.5f;
 	public float	hSpeed = 1.5f;
 	public float	acceleration = 5.4f;
 	public float	jumpVel = 10f;
@@ -61,6 +63,20 @@ public class MegaMan : MonoBehaviour {
 			vel.y = jumpVel;
 		}
 		// jump 
+
+		// shoot
+		if (Input.GetKeyDown (",")) {
+			GameObject bf = Instantiate(blasterPrefab) as GameObject;
+			bf.transform.position = transform.position;
+			Blaster blaster = bf.GetComponent<Blaster> ();
+			
+			// we are facing backwards
+			if (transform.eulerAngles.y != 0) {
+				blaster.speed = -shootingSpeed;
+			} else {
+				blaster.speed = shootingSpeed;
+			}
+		}
 
 		anim.SetBool ("on_ground",grounded);
 		peo.vel = vel;
