@@ -247,14 +247,14 @@ public class PE_Obj : MonoBehaviour {
 				case PE_Dir.downRight:
 					if (pU.y < b.y || u == 0) { // hit the left side
 						posFinal.x -= offsetX;
-						
+						print (posFinal.x);
 						// Handle vel
 						vel.x = 0;
 						
 						usedX = true;
 					} else { // hit the top
 						posFinal.y += offsetY;
-						
+						print (posFinal.x);
 						// Handle vel
 						vel.y = 0;
 						
