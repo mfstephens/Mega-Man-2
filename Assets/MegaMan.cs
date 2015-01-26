@@ -9,6 +9,7 @@ public class MegaMan : MonoBehaviour {
 	private bool facingRight, jumping;
 	Animator anim;
 
+	public int		health = 30;
 	public GameObject blasterPrefab;
 	public float shootingSpeed = 2.5f;
 	public float	hSpeed = 1.5f;

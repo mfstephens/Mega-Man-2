@@ -181,7 +181,7 @@ public class PE_Obj : MonoBehaviour {
 					a0 = a1 - delta;
 					b = that.pos1;
 					b.x -= that.transform.lossyScale.x/2f;
-					b.y -= that.transform.localScale.y/2f;
+					b.y -= that.transform.lossyScale.y/2f;
 				}
 				
 				if (dir == PE_Dir.upLeft) { // Bottom, Right is the comparison corner
@@ -191,7 +191,7 @@ public class PE_Obj : MonoBehaviour {
 					a0 = a1 - delta;
 					b = that.pos1;
 					b.x += that.transform.lossyScale.x/2f;
-					b.y -= that.transform.localScale.y/2f;
+					b.y -= that.transform.lossyScale.y/2f;
 				}
 				
 				if (dir == PE_Dir.downLeft) { // Top, Right is the comparison corner
@@ -201,7 +201,7 @@ public class PE_Obj : MonoBehaviour {
 					a0 = a1 - delta;
 					b = that.pos1;
 					b.x += that.transform.lossyScale.x/2f;
-					b.y += that.transform.localScale.y/2f;
+					b.y += that.transform.lossyScale.y/2f;
 				}
 				
 				if (dir == PE_Dir.downRight) { // Top, Left is the comparison corner
@@ -211,7 +211,7 @@ public class PE_Obj : MonoBehaviour {
 					a0 = a1 - delta;
 					b = that.pos1;
 					b.x -= that.transform.lossyScale.x/2f;
-					b.y += that.transform.localScale.y/2f;
+					b.y += that.transform.lossyScale.y/2f;
 				}
 				
 				// In the x dimension, find how far along the line segment between a0 and a1 we need to go to encounter b

@@ -55,6 +55,7 @@
      <Compile Include="Assets\Enemies\Pierobot.cs" />
      <Compile Include="Assets\Enemies\Spring.cs" />
      <Compile Include="Assets\FollowCam.cs" />
+     <Compile Include="Assets\HealthBar.cs" />
      <Compile Include="Assets\MegaMan.cs" />
      <Compile Include="Assets\PE_Obj.cs" />
      <Compile Include="Assets\PhysEngine.cs" />
