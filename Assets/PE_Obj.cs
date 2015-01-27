@@ -5,10 +5,12 @@ using System.Collections;
 
 
 public class PE_Obj : MonoBehaviour {
+	
+	
 	public bool			still = false;
 	public PE_Collider	coll = PE_Collider.sphere;
 	public PE_GravType	grav = PE_GravType.constant;
-	
+	BoxCollider my_bcollider, other_bcollider;
 	public Vector3		acc = Vector3.zero;
 	
 	public Vector3		vel = Vector3.zero;
@@ -48,6 +50,7 @@ public class PE_Obj : MonoBehaviour {
 		if (PhysEngine.objs.IndexOf(this) == -1) {
 			_pos1 = _pos0 = transform.position;
 			PhysEngine.objs.Add(this);
+			my_bcollider = GetComponent<BoxCollider>();
 		}
 	}
 	
@@ -60,10 +63,10 @@ public class PE_Obj : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		// Ignore collisions of still objects
 		if (still) return;
-		
+
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
 		if (otherPEO == null) return;
-		
+		other_bcollider = other.GetComponent<BoxCollider>();
 		ResolveCollisionWith(otherPEO);
 	}
 	
@@ -144,13 +147,14 @@ public class PE_Obj : MonoBehaviour {
 				if (dir == PE_Dir.down) {
 					// If a0 was above b and a1 is below b resolve to be on top
 					a1 = pos1;
-					a1.y -= transform.lossyScale.y/2f;
+					a1.y -= (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.y += that.transform.lossyScale.y/2f;
+					b.y += (that.transform.lossyScale.y * other_bcollider.size.y/2);
 					if ( PhysEngine.GEQ( a0.y, b.y ) && b.y > a1.y) {
-						posFinal.y += Mathf.Abs( a1.y - b.y );
+						posFinal.y += Mathf.Abs( b.y - a1.y);
 						// Handle vel
+						
 						vel.y = 0;
 						
 						if (ground == null) ground = that;
@@ -161,10 +165,10 @@ public class PE_Obj : MonoBehaviour {
 				if (dir == PE_Dir.up) {
 					// If a0 was below b and a1 is above b resolve to be below
 					a1 = pos1;
-					a1.y += transform.lossyScale.y/2f;
+					a1.y += (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.y -= that.transform.lossyScale.y/2f;
+					b.y -= (that.transform.lossyScale.y * other_bcollider.size.y/2);
 					if ( PhysEngine.LEQ( a0.y, b.y ) && b.y < a1.y) {
 						posFinal.y -= Mathf.Abs( a1.y - b.y );
 						// Handle vel
@@ -176,42 +180,42 @@ public class PE_Obj : MonoBehaviour {
 				
 				if (dir == PE_Dir.upRight) { // Bottom, Left is the comparison corner
 					a1 = pos1;
-					a1.x += transform.lossyScale.x/2f;
-					a1.y += transform.lossyScale.y/2f;
+					a1.x += (transform.lossyScale.x * my_bcollider.size.x/2);
+					a1.y += (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.x -= that.transform.lossyScale.x/2f;
-					b.y -= that.transform.lossyScale.y/2f;
+					b.x -= (that.transform.lossyScale.x * other_bcollider.size.x/2);
+					b.y -= (that.transform.lossyScale.y * other_bcollider.size.y/2);
 				}
 				
 				if (dir == PE_Dir.upLeft) { // Bottom, Right is the comparison corner
 					a1 = pos1;
-					a1.x -= transform.lossyScale.x/2f;
-					a1.y += transform.lossyScale.y/2f;
+					a1.x -= (transform.lossyScale.x * my_bcollider.size.x/2);
+					a1.y += (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.x += that.transform.lossyScale.x/2f;
-					b.y -= that.transform.lossyScale.y/2f;
+					b.x += (that.transform.lossyScale.x * other_bcollider.size.x/2);
+					b.y -= (that.transform.lossyScale.y * other_bcollider.size.y/2);
 				}
 				
 				if (dir == PE_Dir.downLeft) { // Top, Right is the comparison corner
 					a1 = pos1;
-					a1.x -= transform.lossyScale.x/2f;
-					a1.y -= transform.lossyScale.y/2f;
+					a1.x -= (transform.lossyScale.x * my_bcollider.size.x/2);
+					a1.y -= (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.x += that.transform.lossyScale.x/2f;
-					b.y += that.transform.lossyScale.y/2f;
+					b.x += (that.transform.lossyScale.x * other_bcollider.size.x/2);
+					b.y += (that.transform.lossyScale.y * other_bcollider.size.y/2);
 				}
 				
 				if (dir == PE_Dir.downRight) { // Top, Left is the comparison corner
 					a1 = pos1;
-					a1.x += transform.lossyScale.x/2f;
-					a1.y -= transform.lossyScale.y/2f;
+					a1.x += (transform.lossyScale.x * my_bcollider.size.x/2);
+					a1.y -= (transform.lossyScale.y * my_bcollider.size.y/2);
 					a0 = a1 - delta;
 					b = that.pos1;
-					b.x -= that.transform.lossyScale.x/2f;
-					b.y += that.transform.lossyScale.y/2f;
+					b.x -= (that.transform.lossyScale.x * other_bcollider.size.x/2);
+					b.y += (that.transform.lossyScale.y * other_bcollider.size.y/2);
 				}
 				
 				// In the x dimension, find how far along the line segment between a0 and a1 we need to go to encounter b
@@ -247,14 +251,14 @@ public class PE_Obj : MonoBehaviour {
 				case PE_Dir.downRight:
 					if (pU.y < b.y || u == 0) { // hit the left side
 						posFinal.x -= offsetX;
-						print (posFinal.x);
+						
 						// Handle vel
 						vel.x = 0;
 						
 						usedX = true;
 					} else { // hit the top
 						posFinal.y += offsetY;
-						print (posFinal.x);
+						
 						// Handle vel
 						vel.y = 0;
 						
@@ -314,6 +318,5 @@ public class PE_Obj : MonoBehaviour {
 		
 		transform.position = pos1 = posFinal;
 	}
-	
 	
 }

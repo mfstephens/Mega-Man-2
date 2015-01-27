@@ -10,7 +10,8 @@ public enum PE_GravType {
 
 public enum PE_Collider {
 	sphere,
-	aabb
+	aabb,
+	press
 }
 
 public enum PE_Dir { // The direction in which the PE_Obj is moving
@@ -39,7 +40,8 @@ public class PhysEngine : MonoBehaviour {
 		// Handle the timestep for each object
 		float dt = Time.fixedDeltaTime;
 		foreach (PE_Obj po in objs) {
-			TimeStep(po, dt);
+			if(po == null) objs.Remove (po);
+			else TimeStep(po, dt);
 		}
 		
 		// Resolve collisions
@@ -79,13 +81,13 @@ public class PhysEngine : MonoBehaviour {
 			} else {
 				po.dir = PE_Dir.down;
 			}
-		} else if (po.vel.x>0 && po.vel.y>0) {
+		} else if (po.vel.x>0 && po.vel.y>=0) {
 			po.dir = PE_Dir.upRight;
-		} else if (po.vel.x>0 && po.vel.y<=0) {
+		} else if (po.vel.x>0 && po.vel.y<0) {
 			po.dir = PE_Dir.downRight;
-		} else if (po.vel.x<0 && po.vel.y<=0) {
+		} else if (po.vel.x<0 && po.vel.y<0) {
 			po.dir = PE_Dir.downLeft;
-		} else if (po.vel.x<0 && po.vel.y>0) {
+		} else if (po.vel.x<0 && po.vel.y>=0) {
 			po.dir = PE_Dir.upLeft;
 		}
 		
