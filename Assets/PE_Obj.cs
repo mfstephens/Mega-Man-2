@@ -220,6 +220,9 @@ public class PE_Obj : MonoBehaviour {
 				
 				// In the x dimension, find how far along the line segment between a0 and a1 we need to go to encounter b
 				float u = (b.x - a0.x) / (a1.x - a0.x);
+				if (vel.x == 0) {
+					u = (b.x - a0.x) / -(a1.x - a0.x);
+				}
 				
 				// Determine this point using linear interpolation (see the appendix of the book)
 				pU = (1-u)*a0 + u*a1;
