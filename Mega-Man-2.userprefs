@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PE_Obj.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Platform.cs">
     <Files>
-      <File FileName="Assets/PE_Obj.cs" Line="222" Column="5" />
+      <File FileName="Assets/PE_Obj.cs" Line="115" Column="78" />
+      <File FileName="Assets/Platform.cs" Line="7" Column="28" />
+      <File FileName="Assets/PhysEngine.cs" Line="42" Column="1" />
+      <File FileName="Assets/MegaMan.cs" Line="100" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -9,6 +9,7 @@ public class MegaMan : MonoBehaviour {
 	Camera main_cam;
 	public Vector3 cam_pos_last_frame;
 	public Vector3	vel;
+	public float    displacementVelX = 0f;
 	public bool		grounded = false;
 	public GameObject blasterPrefab;
 	public float 	health = 28;
@@ -94,6 +95,9 @@ public class MegaMan : MonoBehaviour {
 
 		anim.SetBool ("on_ground", grounded);
 
+		if (grounded && displacementVelX != 0) {
+			vel.x += displacementVelX;
+		}
 	
 		peo.vel = vel;
 	} // end Update()
