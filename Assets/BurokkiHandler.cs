@@ -8,7 +8,7 @@ public class BurokkiHandler : MonoBehaviour {
 		if (hp <= 0) {
 			PhysEngine.objs.Remove(GetComponent<PE_Obj>());
 			PhysEngine.objs.Remove(GetComponentInParent<PE_Obj>());
-			Destroy(gameObject);
+			Destroy(transform.parent.gameObject);
 		}
 		
 	}

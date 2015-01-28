@@ -131,6 +131,21 @@ public class MegaMan : MonoBehaviour {
 	 void OnTriggerEnter(Collider other) {
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
 		if (otherPEO == null) return;
+
+		// moving platforms only should affect megaman
+		if ((this.GetComponent<MegaMan>() != null) && (otherPEO.GetComponent<Platform>() != null)) {
+			Platform pf = otherPEO.GetComponent<Platform>() as Platform;
+			
+			// check what direction platform is moving
+			if (pf.type == PlatformType.forward) {
+				displacementVelX = pf.speed;
+			} else if (pf.type == PlatformType.backward) {
+				displacementVelX = -pf.speed;
+			} else {
+				displacementVelX = 0f;
+			}
+		}
+
 		if (otherPEO.coll == PE_Collider.press) {
 			if(!immune){
 				enemy_collision = true;
@@ -156,17 +171,23 @@ public class MegaMan : MonoBehaviour {
 	}
 	
 	void bump_back_and_flash(){
-		//new code here
-	/*	// add flash and anim
-		flash_start = Time.time;
-		renderer.material.color
-		if(flash_start + flash_duration < Time.time){ 
+		Color original = gameObject.renderer.material.color;
+		if (vel.x > 0) {
+			vel.x -= 12.0f;
+		} else {
+			vel.x += 12.0f;
 		}
-		else 	renderer.material.color = colors[0];
-		Vector3 temp = transform.position;
-		temp.x += (15f * Time.deltaTime);
-		transform.position = temp;
-		*/
+		StartCoroutine(flash ());
+		renderer.material.color = original;
+	}
+	
+	IEnumerator flash() {
+		for (int n = 0; n < 20; ++n) {
+			gameObject.renderer.material.color = new Color(0.2f, 0.2f, 0.2f, 1.0f);
+			yield return new WaitForSeconds(0.1f);
+			gameObject.renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			yield return new WaitForSeconds(0.1f);
+		}
 	}
 
 	void set_immunity(){

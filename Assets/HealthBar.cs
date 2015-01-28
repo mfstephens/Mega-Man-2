@@ -19,11 +19,6 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("o")) {
-			decreaseByOne();
-		} else if (Input.GetKeyDown("i")) {
-			increaseByOne();
-		}
 	}
 
 	public void increaseByOne() {

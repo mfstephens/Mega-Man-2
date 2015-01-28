@@ -7,7 +7,7 @@ public class WheelHandler : MonoBehaviour {
 	void FixedUpdate(){
 		if (hp <= 0) {
 			PhysEngine.objs.Remove(GetComponent<PE_Obj>());
-			Destroy(gameObject);
+			Destroy(this);
 		}
 		
 	}

@@ -10,15 +10,15 @@ public enum PlatformType {
 public class Platform : MonoBehaviour {
 
 	public PlatformType type = PlatformType.still;
-	public float speed = 1.5f;
+	public float speed = 1.0f;
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+			
 	}
 }
