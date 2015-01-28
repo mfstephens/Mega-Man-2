@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Blaster.cs" />
+     <Compile Include="Assets\BurokkiHandler.cs" />
      <Compile Include="Assets\Enemies\Burokki.cs" />
      <Compile Include="Assets\Enemies\HighPress.cs" />
      <Compile Include="Assets\Enemies\LowPress.cs" />
@@ -57,10 +58,14 @@
      <Compile Include="Assets\FollowCam.cs" />
      <Compile Include="Assets\HealthBar.cs" />
      <Compile Include="Assets\MegaMan.cs" />
+     <Compile Include="Assets\MoleHandler.cs" />
+     <Compile Include="Assets\MrBotHandler.cs" />
      <Compile Include="Assets\PE_Obj.cs" />
      <Compile Include="Assets\PhysEngine.cs" />
      <Compile Include="Assets\PieroBot_flip.cs" />
+     <Compile Include="Assets\Platform.cs" />
      <Compile Include="Assets\Spin.cs" />
+     <Compile Include="Assets\WheelHandler.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

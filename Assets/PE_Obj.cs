@@ -64,6 +64,7 @@ public class PE_Obj : MonoBehaviour {
 		// Ignore collisions of still objects
 		if (still) return;
 		if(coll == PE_Collider.mole) return;
+		if (coll == PE_Collider.burokkiface)return;
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
 		if (otherPEO == null) return;
 		if (otherPEO.coll == PE_Collider.megaman)return;
@@ -72,6 +73,7 @@ public class PE_Obj : MonoBehaviour {
 		if (otherPEO.coll == PE_Collider.pierobot)return;
 		if (otherPEO.coll == PE_Collider.burokki)return;
 		if (otherPEO.coll == PE_Collider.boss)return;
+		if (otherPEO.coll == PE_Collider.burokkiface)return;
 		other_bcollider = other.GetComponent<BoxCollider>();
 		ResolveCollisionWith(otherPEO);
 	}
@@ -114,6 +116,21 @@ public class PE_Obj : MonoBehaviour {
 		// Assumes that "that" is still
 		//		Vector3 posFinal;
 		posFinal = pos1; // Sets a defaut value for posFinal
+
+
+		// moving platforms only should affect megaman
+		if ((this.GetComponent<MegaMan>() != null) && (that.GetComponent<Platform>() != null)) {
+			Platform pf = that.GetComponent<Platform>() as Platform;
+
+			// check what direction platform is moving
+			if (pf.type == PlatformType.forward) {
+				this.GetComponent<MegaMan>().displacementVelX = pf.speed;
+			} else if (pf.type == PlatformType.backward) {
+				this.GetComponent<MegaMan>().displacementVelX = -pf.speed;
+			} else {
+				this.GetComponent<MegaMan>().displacementVelX = 0f;
+			}
+		}
 		
 		switch (this.coll) {
 		case PE_Collider.sphere:

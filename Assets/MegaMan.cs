@@ -11,6 +11,7 @@ public class MegaMan : MonoBehaviour {
 	GameObject health;
 	public Vector3 cam_pos_last_frame;
 	public Vector3	vel;
+	public float    displacementVelX = 0f;
 	public bool		grounded = false;
 	public GameObject blasterPrefab;
 	public float flash_duration =.5f;
@@ -109,6 +110,9 @@ public class MegaMan : MonoBehaviour {
 
 			anim.SetBool ("on_ground", grounded);
 
+		if (grounded && displacementVelX != 0) {
+			vel.x += displacementVelX;
+		}
 	
 		}
 		peo.vel = vel;
@@ -118,6 +122,10 @@ public class MegaMan : MonoBehaviour {
 	void FixedUpdate(){
 	}
 
+
+	void OnTriggerStay(Collider other){
+		OnTriggerEnter (other);
+	}
 
 
 	 void OnTriggerEnter(Collider other) {

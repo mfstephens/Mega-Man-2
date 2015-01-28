@@ -16,6 +16,8 @@ public enum PE_Collider {
 	press,
 	pierobot,
 	burokki,
+	burokkiface,
+	blaster,
 	boss
 }
 

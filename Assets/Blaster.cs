@@ -25,5 +25,35 @@ public class Blaster : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+
+	void OnTriggerEnter(Collider other) {
+		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
+		if (otherPEO.coll == PE_Collider.mole) {
+			other.GetComponent<MoleHandler>().DecrementHP();
+			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+			Destroy (gameObject);
+		}
+		else if (otherPEO.coll == PE_Collider.pierobot) {
+			other.GetComponent<WheelHandler>().DecrementHP();
+			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+			Destroy (gameObject);
+			}
+
+		else if (otherPEO.coll == PE_Collider.burokki)Destroy (this);
+		else if (otherPEO.coll == PE_Collider.burokkiface) {
+			other.GetComponent<BurokkiHandler>().DecrementHP();
+			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+			Destroy (gameObject);
+		}
+		else if (otherPEO.coll == PE_Collider.boss) {
+
+			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+			Destroy (gameObject);
+		}
+	}
+
+
+
 }
 
