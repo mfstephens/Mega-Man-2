@@ -1,0 +1,1356 @@
+fileFormatVersion: 2
+guid: 1fedeaac7b844c24cb793b9af1bcbc31
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Piero_0
+    21300002: Piero_1
+    21300004: Piero_2
+    21300006: Piero_3
+    21300008: Piero_4
+    21300010: Piero_5
+    21300012: Piero_6
+    21300014: Piero_7
+    21300016: Piero_8
+    21300018: Piero_9
+    21300020: Piero_10
+    21300022: Piero_11
+    21300024: Piero_12
+    21300026: Piero_13
+    21300028: Piero_14
+    21300030: Piero_15
+    21300032: Piero_16
+    21300034: Piero_17
+    21300036: Piero_18
+    21300038: Piero_19
+    21300040: Piero_20
+    21300042: Piero_21
+    21300044: Piero_22
+    21300046: Piero_23
+    21300048: Piero_24
+    21300050: Piero_25
+    21300052: Piero_26
+    21300054: Piero_27
+    21300056: Piero_28
+    21300058: Piero_29
+    21300060: Piero_30
+    21300062: Piero_31
+    21300064: Piero_32
+    21300066: Piero_33
+    21300068: Piero_34
+    21300070: Piero_35
+    21300072: Piero_36
+    21300074: Piero_37
+    21300076: Piero_38
+    21300078: Piero_39
+    21300080: Piero_40
+    21300082: Piero_41
+    21300084: Piero_42
+    21300086: Piero_43
+    21300088: Piero_44
+    21300090: Piero_45
+    21300092: Piero_46
+    21300094: Piero_47
+    21300096: Piero_48
+    21300098: Piero_49
+    21300100: Piero_50
+    21300102: Piero_51
+    21300104: Piero_52
+    21300106: Piero_53
+    21300108: Piero_54
+    21300110: Piero_55
+    21300112: Piero_56
+    21300114: Piero_57
+    21300116: Piero_58
+    21300118: Piero_59
+    21300120: Piero_60
+    21300122: Piero_61
+    21300124: Piero_62
+    21300126: Piero_63
+    21300128: Piero_64
+    21300130: Piero_65
+    21300132: Piero_66
+    21300134: Piero_67
+    21300136: Piero_68
+    21300138: Piero_69
+    21300140: Piero_70
+    21300142: Piero_71
+    21300144: Piero_72
+    21300146: Piero_73
+    21300148: Piero_74
+    21300150: Piero_75
+    21300152: Piero_76
+    21300154: Piero_77
+    21300156: Piero_78
+    21300158: Piero_79
+    21300160: Piero_80
+    21300162: Piero_81
+    21300164: Piero_82
+    21300166: Piero_83
+    21300168: Piero_84
+    21300170: Piero_85
+    21300172: Piero_86
+    21300174: Piero_87
+    21300176: Piero_88
+    21300178: Piero_89
+    21300180: Piero_90
+    21300182: Piero_91
+    21300184: Piero_92
+    21300186: Piero_93
+    21300188: Piero_94
+    21300190: Piero_95
+    21300192: Piero_96
+    21300194: Piero_97
+    21300196: Piero_98
+    21300198: Piero_99
+    21300200: Piero_100
+    21300202: Piero_101
+    21300204: Piero_102
+    21300206: Piero_103
+    21300208: Piero_104
+    21300210: Piero_105
+    21300212: Piero_106
+    21300214: Piero_107
+    21300216: Piero_108
+    21300218: Piero_109
+    21300220: Piero_110
+    21300222: Piero_111
+    21300224: Piero_112
+    21300226: Piero_113
+    21300228: Piero_114
+    21300230: Piero_115
+    21300232: Piero_116
+    21300234: Piero_117
+    21300236: Piero_118
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 45
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Piero_0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 954
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_1
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 961
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 961
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 961
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 961
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_5
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 961
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 932
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 932
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_8
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 932
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_9
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 932
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_10
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 932
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 862
+        width: 4
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_12
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 812
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_13
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 844
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_14
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 658
+        width: 23
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_15
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_16
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_17
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_18
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_19
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_20
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 644
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 597
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_22
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 597
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_23
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 597
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_24
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 597
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_25
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 597
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_26
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 597
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_27
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 589
+        width: 42
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_28
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 550
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_29
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 550
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_30
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 550
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_31
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 550
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_32
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 550
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_33
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 550
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_34
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 486
+        width: 40
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_35
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 492
+        width: 36
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_36
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 492
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_37
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 492
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_38
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 492
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_39
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 492
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_40
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 430
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_41
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 430
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_42
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 430
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_43
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 430
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_44
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 405
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_45
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 403
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_46
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 403
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_47
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 403
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_48
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 401
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_49
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 400
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_50
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 400
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_51
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 401
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_52
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 401
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_53
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 400
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_54
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 400
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_55
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 400
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_56
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 400
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_57
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 400
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_58
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 371
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_59
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 371
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_60
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 49
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_61
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 387
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_62
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 353
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_63
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 320
+        width: 49
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_64
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 320
+        width: 49
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_65
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 320
+        width: 49
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_66
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 320
+        width: 49
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_67
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 291
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_68
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 291
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_69
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 291
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_70
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 291
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_71
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 291
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_72
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 284
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_73
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 262
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_74
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_75
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_76
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_77
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_78
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_79
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 197
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_80
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 197
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_81
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 197
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_82
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 197
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_83
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 197
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_84
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 197
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_85
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 197
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_86
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 197
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_87
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 197
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_88
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 197
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_89
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 132
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_90
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 132
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_91
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 132
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_92
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 132
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_93
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 132
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_94
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 132
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_95
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 132
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_96
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 132
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_97
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 132
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_98
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 132
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_99
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 67
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_100
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 67
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_101
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 67
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_102
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 67
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_103
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 67
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_104
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 67
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_105
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 67
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_106
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 67
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_107
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 67
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_108
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 67
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_109
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_110
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_111
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 2
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_112
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 2
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_113
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_114
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 2
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_115
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 2
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_116
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 2
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_117
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 2
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Piero_118
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 2
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

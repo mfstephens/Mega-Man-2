@@ -63,9 +63,15 @@ public class PE_Obj : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		// Ignore collisions of still objects
 		if (still) return;
-
+		if(coll == PE_Collider.mole) return;
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
 		if (otherPEO == null) return;
+		if (otherPEO.coll == PE_Collider.megaman)return;
+		if (otherPEO.coll == PE_Collider.mole)return;
+		if (otherPEO.coll == PE_Collider.press)return;
+		if (otherPEO.coll == PE_Collider.pierobot)return;
+		if (otherPEO.coll == PE_Collider.burokki)return;
+		if (otherPEO.coll == PE_Collider.boss)return;
 		other_bcollider = other.GetComponent<BoxCollider>();
 		ResolveCollisionWith(otherPEO);
 	}
@@ -132,6 +138,9 @@ public class PE_Obj : MonoBehaviour {
 			break;
 			
 		case PE_Collider.aabb:
+		case PE_Collider.megaman:
+		case PE_Collider.pierobot:
+		case PE_Collider.burokki:
 			
 			switch (that.coll) {
 			case PE_Collider.aabb:
@@ -220,6 +229,9 @@ public class PE_Obj : MonoBehaviour {
 				
 				// In the x dimension, find how far along the line segment between a0 and a1 we need to go to encounter b
 				float u = (b.x - a0.x) / (a1.x - a0.x);
+				if (vel.x == 0) {
+					u = (b.x - a0.x) / -(a1.x - a0.x);
+				}
 				
 				// Determine this point using linear interpolation (see the appendix of the book)
 				pU = (1-u)*a0 + u*a1;

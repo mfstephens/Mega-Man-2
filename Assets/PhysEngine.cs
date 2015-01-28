@@ -11,7 +11,12 @@ public enum PE_GravType {
 public enum PE_Collider {
 	sphere,
 	aabb,
-	press
+	megaman,
+	mole,
+	press,
+	pierobot,
+	burokki,
+	boss
 }
 
 public enum PE_Dir { // The direction in which the PE_Obj is moving
@@ -53,7 +58,6 @@ public class PhysEngine : MonoBehaviour {
 		foreach (PE_Obj po in objs) {
 			po.transform.position = po.pos1;
 		}
-		
 	}
 	
 	

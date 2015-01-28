@@ -6,7 +6,7 @@ public class HealthBar : MonoBehaviour {
 
 	public GameObject healthbarUnitPrefab;
 	public Stack<GameObject> healthUnits;
-	public int numHealthUnits = 30;
+	public int numHealthUnits = 28;
 	public float distanceBetweenUnits = 3f;
 
 	// Use this for initialization

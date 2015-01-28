@@ -5,8 +5,7 @@ public class FollowCam : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-	}
+		}
 	
 	// Update is called once per frame
 	void Update(){
@@ -18,7 +17,6 @@ public class FollowCam : MonoBehaviour {
 
 		// Get the position of mega man
 		Vector3 mega_man_pos = GameObject.Find ("Mega Man").transform.position;
-		
 		// Cam follow for top level
 		if (mega_man_pos.x <= 0.000)return;
 		if (mega_man_pos.x >= 69.11 && mega_man_pos.y >= -1.35) return;

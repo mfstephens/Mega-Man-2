@@ -59,6 +59,8 @@
      <Compile Include="Assets\MegaMan.cs" />
      <Compile Include="Assets\PE_Obj.cs" />
      <Compile Include="Assets\PhysEngine.cs" />
+     <Compile Include="Assets\PieroBot_flip.cs" />
+     <Compile Include="Assets\Spin.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
