@@ -8,7 +8,9 @@ public class Pierobot : MonoBehaviour {
 	public float velocity = .5f;
 	public float spawn_view = 4f;
 	Vector3 spawn1, spawn2, spawn3, spawn4, spawn5, wheel1_last_pos, wheel2_last_pos,  wheel3_last_pos,  wheel4_last_pos,  wheel5_last_pos;
-	bool w1_forward, w2_forward, w3_forward, w4_forward, w5_forward;
+	bool w1_forward, w2_forward, w3_forward, w4_forward, w5_forward, bump1, bump2, bump3, bump4, bump5;
+	bool bump1_started, bump2_started, bump3_started, bump4_started, bump5_started;
+	float bump_start, bump_duration;
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
@@ -18,6 +20,10 @@ public class Pierobot : MonoBehaviour {
 		spawn4.Set (91.27f, -13.8f, -3f);
 		spawn5.Set (94.94f, -13.83f, -3f);
 		w1_forward = w2_forward = w3_forward = w4_forward = w5_forward = false;
+		bump1 = bump2 = bump3 = bump4 = bump5 = false;
+		bump1_started = bump2_started = bump3_started = bump4_started = bump5_started = false;
+		bump_duration = .15f;
+		bump_start = -5f;
 	}
 	
 	// Update is called once per frame
@@ -35,7 +41,7 @@ public class Pierobot : MonoBehaviour {
 	}
 	void wheel5_update(){
 		Vector3 mm_pos = mega_man.transform.position;
-		
+		if (mrbot5 == null) { bump5 = false; bump5_started = false;}
 		// wheel
 		if ((mm_pos.x >= spawn5.x - spawn_view) && wheel5 == null && mm_pos.x <= (spawn5.x - spawn_view +.08f)) {
 			wheel5 = Instantiate(WheelPrefab) as GameObject;
@@ -44,7 +50,7 @@ public class Pierobot : MonoBehaviour {
 			w5_forward = true;
 			wheel5.transform.GetComponent<Spin>().is_left = true;
 		}
-		else if ((mm_pos.x <= spawn5.x + spawn_view) && wheel5 == null  && mm_pos.x >= (spawn5.x + spawn_view - .08f)) {
+		else if ((mm_pos.x <= spawn5.x + spawn_view + 1.5f) && wheel5 == null  && mm_pos.x >= (spawn5.x + spawn_view + .2f)) {
 			wheel5 = Instantiate(WheelPrefab) as GameObject;
 			wheel5.transform.position = spawn5;
 			wheel5_last_pos = wheel5.transform.position;
@@ -52,13 +58,27 @@ public class Pierobot : MonoBehaviour {
 			wheel5.transform.GetComponent<Spin>().is_left = false;
 		}
 		// destroy if out of view
-		if (wheel5 != null && ((mm_pos.x < wheel5.transform.position.x - spawn_view 
+		if (wheel5 != null && w5_forward && ((mm_pos.x < wheel5.transform.position.x - spawn_view 
 		                        || mm_pos.x > wheel5.transform.position.x + spawn_view)
 		                       || mm_pos.y > wheel5.transform.position.y + 3f )){
 			PhysEngine.objs.Remove(wheel5.GetComponent<PE_Obj>());
 			Destroy(wheel5);
 			if(mrbot5 != null) Destroy (mrbot5);
 		}
+
+		// destroy if out of view
+		if (wheel5 != null && !w5_forward && ((mm_pos.x < wheel5.transform.position.x - spawn_view - .3f
+		                                       || mm_pos.x > wheel5.transform.position.x + spawn_view + .3f)
+		                                      || mm_pos.y > wheel5.transform.position.y + 3f )){
+			PhysEngine.objs.Remove(wheel5.GetComponent<PE_Obj>());
+			Destroy(wheel5);
+			if(mrbot5 != null) Destroy (mrbot5);
+		}
+		
+		if (mrbot5 != null && mrbot5.transform.position.y < -18.5f) {
+			Destroy(mrbot5);
+		}
+		
 		
 		// make mrbot aka pink guy
 		if (wheel5 != null && mrbot5 == null && wheel5.transform.GetComponent<PE_Obj>().still == true
@@ -77,7 +97,7 @@ public class Pierobot : MonoBehaviour {
 		}
 		
 		// set in motion once mrbot falls ontop of wheel and megaman is close enough
-		if( wheel5 != null && mrbot5 != null && mrbot5.transform.position.y  <= (spawn5.y + .95f) 
+		if( wheel5 != null && mrbot5 != null && mrbot5.transform.position.y <= (spawn5.y + .95f) 
 		   &&((mm_pos.x >= (spawn5.x - spawn_view + .6f) && w5_forward) 
 		   || (mm_pos.x <= (spawn5.x + spawn_view - .6f) && !w5_forward))){
 			wheel5.transform.GetComponent<PE_Obj>().still = false;
@@ -93,12 +113,31 @@ public class Pierobot : MonoBehaviour {
 			wheel5_last_pos = wheel5.transform.position;
 		}
 		
-	} 
+		
+		if (wheel5 == null && mrbot5 != null && !bump5) {
+			if(bump5_started == false){
+				bump_start = Time.time;
+				bump5_started = true;
+			}
+			Vector3 temp = mrbot5.transform.position;
+			temp.y += 3f * Time.deltaTime;
+			mrbot5.transform.position = temp;
+			if(bump_start + bump_duration < Time.time) bump5 = true;
+		}
+		
+		if (wheel5 == null && mrbot5 != null && bump5) {
+			Vector3 temp = mrbot5.transform.position;
+			temp.y -= 4.5f * Time.deltaTime;
+			mrbot5.transform.position = temp;
+		}
+		
+		
+	}	
 
 
 	void wheel4_update(){
 		Vector3 mm_pos = mega_man.transform.position;
-		
+		if (mrbot4 == null) { bump4 = false; bump4_started = false;}
 		// wheel
 		if ((mm_pos.x >= spawn4.x - spawn_view) && wheel4 == null && mm_pos.x <= (spawn4.x - spawn_view +.08f)) {
 			wheel4 = Instantiate(WheelPrefab) as GameObject;
@@ -107,7 +146,7 @@ public class Pierobot : MonoBehaviour {
 			w4_forward = true;
 			wheel4.transform.GetComponent<Spin>().is_left = true;
 		}
-		else if ((mm_pos.x <= spawn4.x + spawn_view) && wheel4 == null  && mm_pos.x >= (spawn4.x + spawn_view - .08f)) {
+		else if ((mm_pos.x <= spawn4.x + spawn_view + 1.5f) && wheel4 == null  && mm_pos.x >= (spawn4.x + spawn_view +.2f)) {
 			wheel4 = Instantiate(WheelPrefab) as GameObject;
 			wheel4.transform.position = spawn4;
 			wheel4_last_pos = wheel4.transform.position;
@@ -115,13 +154,27 @@ public class Pierobot : MonoBehaviour {
 			wheel4.transform.GetComponent<Spin>().is_left = false;
 		}
 		// destroy if out of view
-		if (wheel4 != null && ((mm_pos.x < wheel4.transform.position.x - spawn_view 
+		if (wheel4 != null && w4_forward && ((mm_pos.x < wheel4.transform.position.x - spawn_view 
 		                        || mm_pos.x > wheel4.transform.position.x + spawn_view)
 		                       || mm_pos.y > wheel4.transform.position.y + 3f )){
 			PhysEngine.objs.Remove(wheel4.GetComponent<PE_Obj>());
 			Destroy(wheel4);
 			if(mrbot4 != null) Destroy (mrbot4);
 		}
+
+		// destroy if out of view
+		if (wheel4 != null && !w4_forward && ((mm_pos.x < wheel4.transform.position.x - spawn_view - .3f
+		                                       || mm_pos.x > wheel4.transform.position.x + spawn_view + .3f)
+		                                      || mm_pos.y > wheel4.transform.position.y + 3f )){
+			PhysEngine.objs.Remove(wheel4.GetComponent<PE_Obj>());
+			Destroy(wheel4);
+			if(mrbot4 != null) Destroy (mrbot4);
+		}
+		
+		if (mrbot4 != null && mrbot4.transform.position.y < -18.5f) {
+			Destroy(mrbot4);
+		}
+		
 		
 		// make mrbot aka pink guy
 		if (wheel4 != null && mrbot4 == null && wheel4.transform.GetComponent<PE_Obj>().still == true
@@ -140,7 +193,7 @@ public class Pierobot : MonoBehaviour {
 		}
 		
 		// set in motion once mrbot falls ontop of wheel and megaman is close enough
-		if( wheel4 != null && mrbot4 != null && mrbot4.transform.position.y  <= (spawn4.y + .95f) 
+		if( wheel4 != null && mrbot4 != null && mrbot4.transform.position.y <= (spawn4.y + .95f) 
 		   &&((mm_pos.x >= (spawn4.x - spawn_view + .6f) && w4_forward) 
 		   || (mm_pos.x <= (spawn4.x + spawn_view - .6f) && !w4_forward))){
 			wheel4.transform.GetComponent<PE_Obj>().still = false;
@@ -156,12 +209,31 @@ public class Pierobot : MonoBehaviour {
 			wheel4_last_pos = wheel4.transform.position;
 		}
 		
-	} 
+		
+		if (wheel4 == null && mrbot4 != null && !bump4) {
+			if(bump4_started == false){
+				bump_start = Time.time;
+				bump4_started = true;
+			}
+			Vector3 temp = mrbot4.transform.position;
+			temp.y += 3f * Time.deltaTime;
+			mrbot4.transform.position = temp;
+			if(bump_start + bump_duration < Time.time) bump4 = true;
+		}
+		
+		if (wheel4 == null && mrbot4 != null && bump4) {
+			Vector3 temp = mrbot4.transform.position;
+			temp.y -= 4.5f * Time.deltaTime;
+			mrbot4.transform.position = temp;
+		}
+		
+		
+	}	
 
 
 	void wheel3_update(){
 		Vector3 mm_pos = mega_man.transform.position;
-		
+		if (mrbot3 == null) { bump3 = false; bump3_started = false;}
 		// wheel
 		if ((mm_pos.x >= spawn3.x - spawn_view) && wheel3 == null && mm_pos.x <= (spawn3.x - spawn_view +.08f)) {
 			wheel3 = Instantiate(WheelPrefab) as GameObject;
@@ -170,7 +242,7 @@ public class Pierobot : MonoBehaviour {
 			w3_forward = true;
 			wheel3.transform.GetComponent<Spin>().is_left = true;
 		}
-		else if ((mm_pos.x <= spawn3.x + spawn_view) && wheel3 == null  && mm_pos.x >= (spawn3.x + spawn_view - .08f)) {
+		else if ((mm_pos.x <= spawn3.x + spawn_view + 1.5f) && wheel3 == null  && mm_pos.x >= (spawn3.x + spawn_view + .2f)) {
 			wheel3 = Instantiate(WheelPrefab) as GameObject;
 			wheel3.transform.position = spawn3;
 			wheel3_last_pos = wheel3.transform.position;
@@ -178,13 +250,27 @@ public class Pierobot : MonoBehaviour {
 			wheel3.transform.GetComponent<Spin>().is_left = false;
 		}
 		// destroy if out of view
-		if (wheel3 != null && ((mm_pos.x < wheel3.transform.position.x - spawn_view 
+		if (wheel3 != null && w3_forward && ((mm_pos.x < wheel3.transform.position.x - spawn_view 
 		                        || mm_pos.x > wheel3.transform.position.x + spawn_view)
 		                       || mm_pos.y > wheel3.transform.position.y + 3f )){
 			PhysEngine.objs.Remove(wheel3.GetComponent<PE_Obj>());
 			Destroy(wheel3);
 			if(mrbot3 != null) Destroy (mrbot3);
 		}
+
+		// destroy if out of view
+		if (wheel3 != null && !w3_forward && ((mm_pos.x < wheel3.transform.position.x - spawn_view - .3f
+		                                       || mm_pos.x > wheel3.transform.position.x + spawn_view + .3f)
+		                                      || mm_pos.y > wheel3.transform.position.y + 3f )){
+			PhysEngine.objs.Remove(wheel3.GetComponent<PE_Obj>());
+			Destroy(wheel3);
+			if(mrbot3 != null) Destroy (mrbot3);
+		}
+		
+		if (mrbot3 != null && mrbot3.transform.position.y < -18.5f) {
+			Destroy(mrbot3);
+		}
+		
 		
 		// make mrbot aka pink guy
 		if (wheel3 != null && mrbot3 == null && wheel3.transform.GetComponent<PE_Obj>().still == true
@@ -203,7 +289,7 @@ public class Pierobot : MonoBehaviour {
 		}
 		
 		// set in motion once mrbot falls ontop of wheel and megaman is close enough
-		if( wheel3 != null && mrbot3 != null && mrbot3.transform.position.y  <= (spawn3.y + .95f) 
+		if( wheel3 != null && mrbot3 != null && mrbot3.transform.position.y <= (spawn3.y + .95f) 
 		   &&((mm_pos.x >= (spawn3.x - spawn_view + .6f) && w3_forward) 
 		   || (mm_pos.x <= (spawn3.x + spawn_view - .6f) && !w3_forward))){
 			wheel3.transform.GetComponent<PE_Obj>().still = false;
@@ -219,12 +305,31 @@ public class Pierobot : MonoBehaviour {
 			wheel3_last_pos = wheel3.transform.position;
 		}
 		
-	} 
-
-
-	 void wheel2_update(){
-		Vector3 mm_pos = mega_man.transform.position;
 		
+		if (wheel3 == null && mrbot3 != null && !bump3) {
+			if(bump3_started == false){
+				bump_start = Time.time;
+				bump3_started = true;
+			}
+			Vector3 temp = mrbot3.transform.position;
+			temp.y += 3f * Time.deltaTime;
+			mrbot3.transform.position = temp;
+			if(bump_start + bump_duration < Time.time) bump3 = true;
+		}
+		
+		if (wheel3 == null && mrbot3 != null && bump3) {
+			Vector3 temp = mrbot3.transform.position;
+			temp.y -= 4.5f * Time.deltaTime;
+			mrbot3.transform.position = temp;
+		}
+		
+		
+	}	
+
+
+	void wheel2_update(){
+		Vector3 mm_pos = mega_man.transform.position;
+		if (mrbot2 == null) { bump2 = false; bump2_started = false;}
 		// wheel
 		if ((mm_pos.x >= spawn2.x - spawn_view) && wheel2 == null && mm_pos.x <= (spawn2.x - spawn_view +.08f)) {
 			wheel2 = Instantiate(WheelPrefab) as GameObject;
@@ -233,7 +338,7 @@ public class Pierobot : MonoBehaviour {
 			w2_forward = true;
 			wheel2.transform.GetComponent<Spin>().is_left = true;
 		}
-		else if ((mm_pos.x <= spawn2.x + spawn_view) && wheel2 == null  && mm_pos.x >= (spawn2.x + spawn_view - .08f)) {
+		else if ((mm_pos.x <= spawn2.x + spawn_view + 1.5f) && wheel2 == null  && mm_pos.x >= (spawn2.x + spawn_view + .2f)) {
 			wheel2 = Instantiate(WheelPrefab) as GameObject;
 			wheel2.transform.position = spawn2;
 			wheel2_last_pos = wheel2.transform.position;
@@ -241,13 +346,26 @@ public class Pierobot : MonoBehaviour {
 			wheel2.transform.GetComponent<Spin>().is_left = false;
 		}
 		// destroy if out of view
-		if (wheel2 != null && ((mm_pos.x < wheel2.transform.position.x - spawn_view 
+		if (wheel2 != null && w2_forward && ((mm_pos.x < wheel2.transform.position.x - spawn_view 
 		                        || mm_pos.x > wheel2.transform.position.x + spawn_view)
 		                       || mm_pos.y > wheel2.transform.position.y + 3f )){
 			PhysEngine.objs.Remove(wheel2.GetComponent<PE_Obj>());
 			Destroy(wheel2);
 			if(mrbot2 != null) Destroy (mrbot2);
 		}
+		// destroy if out of view
+		if (wheel2 != null && !w2_forward && ((mm_pos.x < wheel2.transform.position.x - spawn_view - .3f
+		                                       || mm_pos.x > wheel2.transform.position.x + spawn_view + .3f)
+		                                      || mm_pos.y > wheel2.transform.position.y + 3f )){
+			PhysEngine.objs.Remove(wheel2.GetComponent<PE_Obj>());
+			Destroy(wheel2);
+			if(mrbot2 != null) Destroy (mrbot2);
+		}
+		
+		if (mrbot2 != null && mrbot2.transform.position.y < -18.5f) {
+			Destroy(mrbot2);
+		}
+		
 		
 		// make mrbot aka pink guy
 		if (wheel2 != null && mrbot2 == null && wheel2.transform.GetComponent<PE_Obj>().still == true
@@ -266,7 +384,7 @@ public class Pierobot : MonoBehaviour {
 		}
 		
 		// set in motion once mrbot falls ontop of wheel and megaman is close enough
-		if( wheel2 != null && mrbot2 != null && mrbot2.transform.position.y  <= (spawn2.y + .95f) 
+		if( wheel2 != null && mrbot2 != null && mrbot2.transform.position.y <= (spawn2.y + .95f) 
 		   &&((mm_pos.x >= (spawn2.x - spawn_view + .6f) && w2_forward) 
 		   || (mm_pos.x <= (spawn2.x + spawn_view - .6f) && !w2_forward))){
 			wheel2.transform.GetComponent<PE_Obj>().still = false;
@@ -281,12 +399,31 @@ public class Pierobot : MonoBehaviour {
 			mrbot2.transform.position += move;
 			wheel2_last_pos = wheel2.transform.position;
 		}
-
-	} 
+		
+		
+		if (wheel2 == null && mrbot2 != null && !bump2) {
+			if(bump2_started == false){
+				bump_start = Time.time;
+				bump2_started = true;
+			}
+			Vector3 temp = mrbot2.transform.position;
+			temp.y += 3f * Time.deltaTime;
+			mrbot2.transform.position = temp;
+			if(bump_start + bump_duration < Time.time) bump2 = true;
+		}
+		
+		if (wheel2 == null && mrbot2 != null && bump2) {
+			Vector3 temp = mrbot2.transform.position;
+			temp.y -= 4.5f * Time.deltaTime;
+			mrbot2.transform.position = temp;
+		}
+		
+		
+	}	
 
 	void wheel1_update(){
 		Vector3 mm_pos = mega_man.transform.position;
-		
+		if (mrbot1 == null) { bump1 = false; bump1_started = false;}
 		// wheel
 		if ((mm_pos.x >= spawn1.x - spawn_view) && wheel1 == null && mm_pos.x <= (spawn1.x - spawn_view +.08f)) {
 			wheel1 = Instantiate(WheelPrefab) as GameObject;
@@ -295,7 +432,7 @@ public class Pierobot : MonoBehaviour {
 			w1_forward = true;
 			wheel1.transform.GetComponent<Spin>().is_left = true;
 		}
-		else if ((mm_pos.x <= spawn1.x + spawn_view) && wheel1 == null  && mm_pos.x >= (spawn1.x + spawn_view - .08f)) {
+		else if ((mm_pos.x <= spawn1.x + spawn_view + 1.5f) && wheel1 == null  && mm_pos.x >= (spawn1.x + spawn_view + .2f)) {
 			wheel1 = Instantiate(WheelPrefab) as GameObject;
 			wheel1.transform.position = spawn1;
 			wheel1_last_pos = wheel1.transform.position;
@@ -303,13 +440,27 @@ public class Pierobot : MonoBehaviour {
 			wheel1.transform.GetComponent<Spin>().is_left = false;
 		}
 		// destroy if out of view
-		if (wheel1 != null && ((mm_pos.x < wheel1.transform.position.x - spawn_view 
+		if (wheel1 != null && w1_forward && ((mm_pos.x < wheel1.transform.position.x - spawn_view 
 		                        || mm_pos.x > wheel1.transform.position.x + spawn_view)
 		                       || mm_pos.y > wheel1.transform.position.y + 3f )){
 			PhysEngine.objs.Remove(wheel1.GetComponent<PE_Obj>());
 			Destroy(wheel1);
 			if(mrbot1 != null) Destroy (mrbot1);
 		}
+		// destroy if out of view
+		if (wheel1 != null && !w1_forward && ((mm_pos.x < wheel1.transform.position.x - spawn_view - .3f
+		                                       || mm_pos.x > wheel1.transform.position.x + spawn_view + .3f)
+		                                      || mm_pos.y > wheel1.transform.position.y + 3f )){
+			PhysEngine.objs.Remove(wheel1.GetComponent<PE_Obj>());
+			Destroy(wheel1);
+			if(mrbot1 != null) Destroy (mrbot1);
+		}
+
+
+		if (mrbot1 != null && mrbot1.transform.position.y < -18.5f) {
+			Destroy(mrbot1);
+		}
+
 		
 		// make mrbot aka pink guy
 		if (wheel1 != null && mrbot1 == null && wheel1.transform.GetComponent<PE_Obj>().still == true
@@ -345,7 +496,23 @@ public class Pierobot : MonoBehaviour {
 		}
 
 
-	}
+		if (wheel1 == null && mrbot1 != null && !bump1) {
+			if(bump1_started == false){
+				bump_start = Time.time;
+				bump1_started = true;
+			}
+			Vector3 temp = mrbot1.transform.position;
+			temp.y += 3f * Time.deltaTime;
+			mrbot1.transform.position = temp;
+			if(bump_start + bump_duration < Time.time) bump1 = true;
+		}
+
+		if (wheel1 == null && mrbot1 != null && bump1) {
+			Vector3 temp = mrbot1.transform.position;
+			temp.y -= 4.5f * Time.deltaTime;
+			mrbot1.transform.position = temp;
+		}
 
 
+	}	
 }

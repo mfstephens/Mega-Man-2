@@ -158,6 +158,7 @@ public class PE_Obj : MonoBehaviour {
 		case PE_Collider.megaman:
 		case PE_Collider.pierobot:
 		case PE_Collider.burokki:
+		case PE_Collider.boss:
 			
 			switch (that.coll) {
 			case PE_Collider.aabb:

@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MegaMan : MonoBehaviour {
-	private PE_Obj peo;
-	bool facingRight, jumping, enemy_collision, immune;
-	float 	jump_start, shoot_start, immunity_start, flash_start;
+	PE_Obj peo;
+	bool facingRight, jumping, enemy_collision, immune, advanced1, advanced2, no_movement;
+	float 	jump_start, shoot_start, immunity_start, flash_start, wait;
 	Vector3 spawn;
 	Animator anim;
 	Camera main_cam;
 	GameObject health;
+	public float wait_time_left;
+	static public List<GameObject> blasters;
 	public Vector3 cam_pos_last_frame;
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
@@ -16,7 +19,7 @@ public class MegaMan : MonoBehaviour {
 	public GameObject blasterPrefab;
 	public float flash_duration =.5f;
 	public float immunity_duration = 4f;
-	public float collision_duration = .5f;
+	public float collision_duration = .2f;
 	public float 	shootingSpeed = 3.7f;
 	public float	hSpeed = 1.5f;
 	public float	acceleration = 10f;
@@ -39,6 +42,9 @@ public class MegaMan : MonoBehaviour {
 		enemy_collision = immune = false;
 		health = GameObject.Find ("Health Bar");
 		immunity_start = -4f;
+		blasters = new List<GameObject>();
+		advanced1 = advanced2 = no_movement = false;
+		wait = 0f;
 	}
 	
 	// Update is called once per frame
@@ -50,7 +56,7 @@ public class MegaMan : MonoBehaviour {
 			peo.vel.x = -20f;
 			bump_back_and_flash();
 		}
-
+		if(level_advance_wait() || no_movement) return;
 		else{
 			vel = peo.vel; // Pull velocity from the PE_Obj
 			grounded = (peo.ground != null);
@@ -87,51 +93,60 @@ public class MegaMan : MonoBehaviour {
 			// end jump 
 
 			// shoot
-			if (Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) {
+			if ((Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) && blasters.Count < 3) {
 				anim.SetBool ("shooting", true);
 				shoot_start = Time.time;
-				GameObject bf = Instantiate(blasterPrefab) as GameObject;
-				Vector3 end_of_gun = transform.position;
-				Blaster blaster = bf.GetComponent<Blaster> ();
-			
-				// we are facing backwards
-				if (transform.eulerAngles.y != 0) {
-					end_of_gun.x += -.5f;
-					blaster.speed = -shootingSpeed;
-				} else {
-					end_of_gun.x += .5f;
-					blaster.speed = shootingSpeed;
-				}
-				bf.transform.position = end_of_gun;
+				blasters.Add(Instantiate(blasterPrefab) as GameObject);
 			}
-				if ((shoot_start + .25f) <= Time.time)
-					anim.SetBool ("shooting", false);
-				// end shoot
+			if ((shoot_start + .25f) <= Time.time) anim.SetBool ("shooting", false);
+
+			// end shoot
 
 			anim.SetBool ("on_ground", grounded);
 
-		if (grounded && displacementVelX != 0) {
-			vel.x += displacementVelX;
-		}
+			if (grounded && displacementVelX != 0) {
+				vel.x += displacementVelX;
+			}
 	
 		}
 		peo.vel = vel;
 	} // end Update()
 
-	
 	void FixedUpdate(){
-	}
 
+	}
+	
+
+	void OnTriggerExit(Collider other){
+		if(other.GetComponent<Door_Open>() != null){
+			no_movement = false;
+			return;
+		}
+		
+	}
 
 	void OnTriggerStay(Collider other){
 		OnTriggerEnter (other);
 	}
 
-
-	 void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter(Collider other) {
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
-		if (otherPEO == null) return;
-
+		if (otherPEO == null) {
+			// no movement input allowed when moving through doors
+			if(other.GetComponent<Door_Open>() != null){
+				no_movement = true;
+				return;
+			}
+			if(other.GetComponent<MrBotHandler>() != null){
+				if(!immune){
+					enemy_collision = true;
+					// 4 damage
+					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
+				}
+			}
+			return;
+		}
+	
 		// moving platforms only should affect megaman
 		if ((this.GetComponent<MegaMan>() != null) && (otherPEO.GetComponent<Platform>() != null)) {
 			Platform pf = otherPEO.GetComponent<Platform>() as Platform;
@@ -167,7 +182,13 @@ public class MegaMan : MonoBehaviour {
 				for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
 			}
 		}
-
+		if (otherPEO.coll == PE_Collider.burokki) {
+			if(!immune){
+				enemy_collision = true;
+				// 8 damage
+				for(int i = 0; i < 8; i++) health.GetComponent<HealthBar>().decreaseByOne();
+			}
+		}
 	}
 	
 	void bump_back_and_flash(){
@@ -194,6 +215,89 @@ public class MegaMan : MonoBehaviour {
 		if (immunity_duration + immunity_start >= Time.time)immune = true;
 		if(immunity_duration + immunity_start < Time.time) immune = false;
 		if(enemy_collision && !immune) immunity_start = Time.time + collision_duration;
+	}
+
+	bool level_advance_wait(){
+		if(transform.position.x > 70 && transform.position.y <= -3 && transform.position.y >= -3.5 && !advanced1){
+			if(wait + 2f < Time.time) wait = Time.time;
+			vel.y = 0;
+			vel.x = 0;
+			GetComponent<PE_Obj>().still = true;
+			if(wait + 1.8f <= Time.time){
+				GetComponent<PE_Obj>().still = false;
+				advanced1 = true;
+				return false;
+			} 
+			return true;
+		}
+		// if fall through first jump, put mega man back ontop
+		if(transform.position.x > 70 && transform.position.x <= 72 && transform.position.y <= -8.7 && transform.position.y > -14.2 && advanced1){
+			Vector3 temp = transform.position;
+			temp.y = -8.57f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Platform13_Backward").GetComponent<PE_Obj>();
+		}
+		// if fall through first jump, put mega man back ontop
+		if(transform.position.x > 72 && transform.position.x < 80 && transform.position.y > -11.8 && advanced1){
+			Vector3 temp = transform.position;
+			temp.y = -8.57f;
+			temp.x = 71.57f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Platform13_Backward").GetComponent<PE_Obj>();
+		}
+		
+		
+		if (transform.position.x > 65.8 && transform.position.x < 73 && transform.position.y <= -11.2 && !advanced2 && transform.position.y >= - 11.7){
+			if(wait + 2f < Time.time) wait = Time.time;
+			vel.y = 0f;
+			vel.x = 0f;
+			GetComponent<PE_Obj>().still = true;
+			if(wait + 1.8f <= Time.time){
+				GetComponent<PE_Obj>().still = false;
+				advanced2 = true;
+				return false;
+			} 
+			return true;
+		}
+		// if fall through second jump, put mega man back ontop
+		if(transform.position.x > 65 && transform.position.x < 69 && transform.position.y <= -16.8 && advanced2){
+			Vector3 temp = transform.position;
+			temp.y = -16.27f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Platform14_Backward").GetComponent<PE_Obj>();
+		}
+
+
+		// if fall through boss parts, put mega man back ontop
+		if(transform.position.x > 135 && transform.position.x < 142 && transform.position.y < -14.85){
+			Vector3 temp = transform.position;
+			temp.y = -14.75f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Ground35").GetComponent<PE_Obj>();
+		}
+
+
+
+
+
+		if(transform.position.x > 142 && transform.position.y <= -16.8){
+			Vector3 temp = transform.position;
+			temp.y = -16.7f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Boss_Platform").GetComponent<PE_Obj>();
+		}
+
+		return false;
 	}
 
 	void died(){

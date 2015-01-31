@@ -33,7 +33,7 @@ public enum PE_Dir { // The direction in which the PE_Obj is moving
 
 public class PhysEngine : MonoBehaviour {
 	static public List<PE_Obj>	objs;
-	static public float			closeEnough = 0.1f;
+	static public float			closeEnough = 0.08f;
 	
 	public Vector3		gravity = new Vector3(0,-9.8f,0);
 	
