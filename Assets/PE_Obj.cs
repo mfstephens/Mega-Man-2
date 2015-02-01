@@ -74,6 +74,8 @@ public class PE_Obj : MonoBehaviour {
 		if (otherPEO.coll == PE_Collider.burokki)return;
 		if (otherPEO.coll == PE_Collider.boss)return;
 		if (otherPEO.coll == PE_Collider.burokkiface)return;
+		if (otherPEO.coll == PE_Collider.spikewall)return;
+		if (otherPEO.coll == PE_Collider.spike)return;
 		other_bcollider = other.GetComponent<BoxCollider>();
 		ResolveCollisionWith(otherPEO);
 	}

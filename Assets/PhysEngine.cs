@@ -18,7 +18,9 @@ public enum PE_Collider {
 	burokki,
 	burokkiface,
 	blaster,
-	boss
+	boss,
+	spikewall,
+	spike
 }
 
 public enum PE_Dir { // The direction in which the PE_Obj is moving

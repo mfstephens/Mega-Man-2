@@ -6,6 +6,10 @@ public class FollowCam : MonoBehaviour {
 	float wait, wait_time;
 	GameObject mega_man;
 	Vector3 mega_man_pos;
+	public float shake = 0f;
+	float shakeAmount = 0.1f;
+	float decreaseFactor = 1.0f;
+
 	// Use this for initialization
 	void Start () {
 		advanced1 = advanced2 = false;
@@ -16,6 +20,16 @@ public class FollowCam : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update(){
+
+
+		if (shake > 0) {
+			Vector3 random = Random.insideUnitSphere * shakeAmount;
+			random.z = -100f;
+			transform.position = random;
+			shake -= Time.deltaTime * decreaseFactor;
+		} else {
+			shake = 0f;
+		}
 
 		// Get the position of mega man
 		mega_man_pos = mega_man.transform.position;

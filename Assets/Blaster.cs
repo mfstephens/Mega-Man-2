@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Blaster : MonoBehaviour {
-	private PE_Obj peo;
+	protected PE_Obj peo;
 	public float	speed = 3, horzExtent;
-	GameObject 		mega_man;
+	protected GameObject 		mega_man;
 	// Use this for initialization
 
-	void Awake(){
+	public virtual void Awake(){
 		horzExtent = (Camera.main.orthographicSize * Screen.width / Screen.height);
 		peo = GetComponent<PE_Obj>();
 		peo.grav = PE_GravType.none;
@@ -25,13 +25,13 @@ public class Blaster : MonoBehaviour {
 
 	}
 
-	void Start () {
+	public virtual void Start () {
 	}
 
 	
 	// Update is called once per frame
 	// Note that we use Update for input but FixedUpdate for physics. This is because Unity input is handled based on Update
-	void FixedUpdate () {
+	public virtual void FixedUpdate () {
 		float cam_pos = GameObject.Find ("Main Camera").camera.transform.position.x;
 		if (transform.position.x < cam_pos - horzExtent) {
 			PhysEngine.objs.Remove(GetComponent<PE_Obj>());
@@ -46,7 +46,7 @@ public class Blaster : MonoBehaviour {
 	}
 	
 
-	void OnTriggerEnter(Collider other) {
+	public virtual void OnTriggerEnter(Collider other) {
 		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
 		if (otherPEO == null) {
 			if(other.GetComponent<MrBotHandler>() != null){

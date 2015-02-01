@@ -2,6 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum WeaponType {
+	Blaster,
+	CustomWeapon
+}
+
 public class MegaMan : MonoBehaviour {
 	PE_Obj peo;
 	bool facingRight, jumping, enemy_collision, immune, advanced1, advanced2, no_movement;
@@ -10,13 +15,17 @@ public class MegaMan : MonoBehaviour {
 	Animator anim;
 	Camera main_cam;
 	GameObject health;
+	public GameObject blasterPrefab, customWeaponPrefab;
 	public float wait_time_left;
 	static public List<GameObject> blasters;
+	public WeaponType currentWeapon;
+
+
+
 	public Vector3 cam_pos_last_frame;
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
 	public bool		grounded = false;
-	public GameObject blasterPrefab;
 	public float flash_duration =.5f;
 	public float immunity_duration = 4f;
 	public float collision_duration = .2f;
@@ -52,10 +61,7 @@ public class MegaMan : MonoBehaviour {
 	void Update () {
 		set_immunity ();
 		if (immunity_start <= Time.time) enemy_collision = false;
-		if (enemy_collision && !immune) {
-			peo.vel.x = -20f;
-			bump_back_and_flash();
-		}
+
 		if(level_advance_wait() || no_movement) return;
 		else{
 			vel = peo.vel; // Pull velocity from the PE_Obj
@@ -96,7 +102,11 @@ public class MegaMan : MonoBehaviour {
 			if ((Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) && blasters.Count < 3) {
 				anim.SetBool ("shooting", true);
 				shoot_start = Time.time;
-				blasters.Add(Instantiate(blasterPrefab) as GameObject);
+				if (currentWeapon == WeaponType.Blaster) {
+					blasters.Add(Instantiate(blasterPrefab) as GameObject);
+				} else if (currentWeapon == WeaponType.CustomWeapon) {
+					blasters.Add (Instantiate(customWeaponPrefab) as GameObject);
+				}
 			}
 			if ((shoot_start + .25f) <= Time.time) anim.SetBool ("shooting", false);
 
@@ -109,6 +119,11 @@ public class MegaMan : MonoBehaviour {
 			}
 	
 		}
+
+		if (enemy_collision && !immune) {
+			bump_back_and_flash();
+		}
+
 		peo.vel = vel;
 	} // end Update()
 
@@ -189,15 +204,28 @@ public class MegaMan : MonoBehaviour {
 				for(int i = 0; i < 8; i++) health.GetComponent<HealthBar>().decreaseByOne();
 			}
 		}
+		if (otherPEO.coll == PE_Collider.spikewall) {
+			health.GetComponent<HealthBar>().empty();
+			died ();
+		}
+		if (otherPEO.coll == PE_Collider.spike) {
+			if(!immune) {
+				enemy_collision = true;
+				health.GetComponent<HealthBar>().decreaseByAmount(4);
+			}
+		}
+
 	}
 	
 	void bump_back_and_flash(){
 		Color original = gameObject.renderer.material.color;
+		Vector3 temp = transform.position;
 		if (vel.x > 0) {
-			vel.x -= 12.0f;
+			vel.x = -20.0f;
 		} else {
-			vel.x += 12.0f;
+			vel.x = 20.0f;
 		}
+		transform.position = temp;
 		StartCoroutine(flash ());
 		renderer.material.color = original;
 	}
@@ -301,10 +329,10 @@ public class MegaMan : MonoBehaviour {
 	}
 
 	void died(){
-		float temp = Time.time;	
-		while (temp + 3.5f >= Time.time) {};
+//		float temp = Time.time;	
+//		while (temp + 3.5f >= Time.time) {};
 		Application.LoadLevel (Application.loadedLevel);
-		}
+	}
 
 
 
