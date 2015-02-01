@@ -69,6 +69,7 @@ public class PE_Obj : MonoBehaviour {
 		if (otherPEO == null) return;
 		if (otherPEO.coll == PE_Collider.megaman)return;
 		if (otherPEO.coll == PE_Collider.mole)return;
+		if (otherPEO.coll == PE_Collider.item)return;
 		if (otherPEO.coll == PE_Collider.press)return;
 		if (otherPEO.coll == PE_Collider.pierobot)return;
 		if (otherPEO.coll == PE_Collider.burokki)return;
@@ -161,6 +162,7 @@ public class PE_Obj : MonoBehaviour {
 		case PE_Collider.pierobot:
 		case PE_Collider.burokki:
 		case PE_Collider.boss:
+		case PE_Collider.item:
 			
 			switch (that.coll) {
 			case PE_Collider.aabb:

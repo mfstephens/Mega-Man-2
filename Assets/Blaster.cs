@@ -57,7 +57,12 @@ public class Blaster : MonoBehaviour {
 			}
 			return;
 		}
-		if (otherPEO.coll == PE_Collider.mole) {
+		else if (otherPEO.coll == PE_Collider.press) {
+			peo.vel.x = - speed;
+			peo.vel.y = Mathf.Abs(speed/2);
+			return;
+		}
+		else if (otherPEO.coll == PE_Collider.mole) {
 			other.GetComponent<MoleHandler>().DecrementHP();
 			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
 			MegaMan.blasters.Remove(gameObject);
@@ -74,9 +79,8 @@ public class Blaster : MonoBehaviour {
 
 		else if (otherPEO.coll == PE_Collider.burokki){
 			if(GetComponent<PE_Obj>() != null){
-				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
-				MegaMan.blasters.Remove(gameObject);
-				Destroy (gameObject);
+				peo.vel.x = - speed;
+				peo.vel.y = Mathf.Abs(speed/2);
 			}
 			return;
 		}

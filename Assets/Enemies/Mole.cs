@@ -7,8 +7,8 @@ public class Mole : MonoBehaviour {
 	public float respawn_rate1 = 8f;
 	public float respawn_rate2 = 9f;
 	public float respawn_rate3 = 11f;
-	public float spawn_depth = 1f;
-	public float mole_vel = .8f;
+	public float spawn_depth = .7f;
+	public float mole_vel = .75f;
 	float group1_spawn, group2_spawn, group3_spawn;
 	float g4_top, g5_left, g5_top, g5_right, g6_left, g6_top, g7_left, g7_top;
 	float g40_bottom, g41_left, g41_bottom, g41_right, g42_left, g42_bottom, g42_right, g43_left, g43_bottom, g43_right;
