@@ -1,0 +1,1565 @@
+fileFormatVersion: 2
+guid: b58db5a8348c49a42b349a7fc0b7a589
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MegaMan2Sheet7_0
+    21300002: MegaMan2Sheet7_1
+    21300004: MegaMan2Sheet7_2
+    21300006: MegaMan2Sheet7_3
+    21300008: MegaMan2Sheet7_4
+    21300010: MegaMan2Sheet7_5
+    21300012: MegaMan2Sheet7_6
+    21300014: MegaMan2Sheet7_7
+    21300016: MegaMan2Sheet7_8
+    21300018: MegaMan2Sheet7_9
+    21300020: MegaMan2Sheet7_10
+    21300022: MegaMan2Sheet7_11
+    21300024: MegaMan2Sheet7_12
+    21300026: MegaMan2Sheet7_13
+    21300028: MegaMan2Sheet7_14
+    21300030: MegaMan2Sheet7_15
+    21300032: MegaMan2Sheet7_16
+    21300034: MegaMan2Sheet7_17
+    21300036: MegaMan2Sheet7_18
+    21300038: MegaMan2Sheet7_19
+    21300040: MegaMan2Sheet7_20
+    21300042: MegaMan2Sheet7_21
+    21300044: MegaMan2Sheet7_22
+    21300046: MegaMan2Sheet7_23
+    21300048: MegaMan2Sheet7_24
+    21300050: MegaMan2Sheet7_25
+    21300052: MegaMan2Sheet7_26
+    21300054: MegaMan2Sheet7_27
+    21300056: MegaMan2Sheet7_28
+    21300058: MegaMan2Sheet7_29
+    21300060: MegaMan2Sheet7_30
+    21300062: MegaMan2Sheet7_31
+    21300064: MegaMan2Sheet7_32
+    21300066: MegaMan2Sheet7_33
+    21300068: MegaMan2Sheet7_34
+    21300070: MegaMan2Sheet7_35
+    21300072: MegaMan2Sheet7_36
+    21300074: MegaMan2Sheet7_37
+    21300076: MegaMan2Sheet7_38
+    21300078: MegaMan2Sheet7_39
+    21300080: MegaMan2Sheet7_40
+    21300082: MegaMan2Sheet7_41
+    21300084: MegaMan2Sheet7_42
+    21300086: MegaMan2Sheet7_43
+    21300088: MegaMan2Sheet7_44
+    21300090: MegaMan2Sheet7_45
+    21300092: MegaMan2Sheet7_46
+    21300094: MegaMan2Sheet7_47
+    21300096: MegaMan2Sheet7_48
+    21300098: MegaMan2Sheet7_49
+    21300100: MegaMan2Sheet7_50
+    21300102: MegaMan2Sheet7_51
+    21300104: MegaMan2Sheet7_52
+    21300106: MegaMan2Sheet7_53
+    21300108: MegaMan2Sheet7_54
+    21300110: MegaMan2Sheet7_55
+    21300112: MegaMan2Sheet7_56
+    21300114: MegaMan2Sheet7_57
+    21300116: MegaMan2Sheet7_58
+    21300118: MegaMan2Sheet7_59
+    21300120: MegaMan2Sheet7_60
+    21300122: MegaMan2Sheet7_61
+    21300124: MegaMan2Sheet7_62
+    21300126: MegaMan2Sheet7_63
+    21300128: MegaMan2Sheet7_64
+    21300130: MegaMan2Sheet7_65
+    21300132: MegaMan2Sheet7_66
+    21300134: MegaMan2Sheet7_67
+    21300136: MegaMan2Sheet7_68
+    21300138: MegaMan2Sheet7_69
+    21300140: MegaMan2Sheet7_70
+    21300142: MegaMan2Sheet7_71
+    21300144: MegaMan2Sheet7_72
+    21300146: MegaMan2Sheet7_73
+    21300148: MegaMan2Sheet7_74
+    21300150: MegaMan2Sheet7_75
+    21300152: MegaMan2Sheet7_76
+    21300154: MegaMan2Sheet7_77
+    21300156: MegaMan2Sheet7_78
+    21300158: MegaMan2Sheet7_79
+    21300160: MegaMan2Sheet7_80
+    21300162: MegaMan2Sheet7_81
+    21300164: MegaMan2Sheet7_82
+    21300166: MegaMan2Sheet7_83
+    21300168: MegaMan2Sheet7_84
+    21300170: MegaMan2Sheet7_85
+    21300172: MegaMan2Sheet7_86
+    21300174: MegaMan2Sheet7_87
+    21300176: MegaMan2Sheet7_88
+    21300178: MegaMan2Sheet7_89
+    21300180: MegaMan2Sheet7_90
+    21300182: MegaMan2Sheet7_91
+    21300184: MegaMan2Sheet7_92
+    21300186: MegaMan2Sheet7_93
+    21300188: MegaMan2Sheet7_94
+    21300190: MegaMan2Sheet7_95
+    21300192: MegaMan2Sheet7_96
+    21300194: MegaMan2Sheet7_97
+    21300196: MegaMan2Sheet7_98
+    21300198: MegaMan2Sheet7_99
+    21300200: MegaMan2Sheet7_100
+    21300202: MegaMan2Sheet7_101
+    21300204: MegaMan2Sheet7_102
+    21300206: MegaMan2Sheet7_103
+    21300208: MegaMan2Sheet7_104
+    21300210: MegaMan2Sheet7_105
+    21300212: MegaMan2Sheet7_106
+    21300214: MegaMan2Sheet7_107
+    21300216: MegaMan2Sheet7_108
+    21300218: MegaMan2Sheet7_109
+    21300220: MegaMan2Sheet7_110
+    21300222: MegaMan2Sheet7_111
+    21300224: MegaMan2Sheet7_112
+    21300226: MegaMan2Sheet7_113
+    21300228: MegaMan2Sheet7_114
+    21300230: MegaMan2Sheet7_115
+    21300232: MegaMan2Sheet7_116
+    21300234: MegaMan2Sheet7_117
+    21300236: MegaMan2Sheet7_118
+    21300238: MegaMan2Sheet7_119
+    21300240: MegaMan2Sheet7_120
+    21300242: MegaMan2Sheet7_121
+    21300244: MegaMan2Sheet7_122
+    21300246: MegaMan2Sheet7_123
+    21300248: MegaMan2Sheet7_124
+    21300250: MegaMan2Sheet7_125
+    21300252: MegaMan2Sheet7_126
+    21300254: MegaMan2Sheet7_127
+    21300256: MegaMan2Sheet7_128
+    21300258: MegaMan2Sheet7_129
+    21300260: MegaMan2Sheet7_130
+    21300262: MegaMan2Sheet7_131
+    21300264: MegaMan2Sheet7_132
+    21300266: MegaMan2Sheet7_133
+    21300268: MegaMan2Sheet7_134
+    21300270: MegaMan2Sheet7_135
+    21300272: MegaMan2Sheet7_136
+    21300274: MegaMan2Sheet7_137
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MegaMan2Sheet7_0
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 496
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 496
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 496
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 496
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_5
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 496
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_7
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 478
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_8
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 478
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_9
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 478
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 478
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 478
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_12
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 478
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_13
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 478
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_14
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 460
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_15
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 460
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_16
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 460
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 460
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_18
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 460
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_19
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 460
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_20
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 460
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_21
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 442
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 442
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_23
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 442
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 442
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_25
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 442
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_26
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 442
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_27
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 442
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_28
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 424
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_29
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 424
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_30
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 424
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_31
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 424
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_32
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 424
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_33
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 424
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_34
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 424
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_35
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 406
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_36
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 406
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_37
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 406
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 406
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_39
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 406
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_40
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 406
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_41
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 406
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_42
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 388
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_43
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 388
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_44
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 388
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 388
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_46
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 388
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_47
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 388
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_48
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 388
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_49
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 370
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_50
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 370
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_51
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_52
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_53
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 370
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_54
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 370
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_55
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 370
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_56
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 352
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_57
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 352
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_58
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 352
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_59
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_60
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_61
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_62
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 352
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_63
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 334
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_64
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 334
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_65
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 334
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_66
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 334
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_67
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 334
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_68
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 334
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_69
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 334
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_70
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 299
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_71
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 299
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_72
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 265
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_73
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 265
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_74
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 231
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_75
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 231
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_76
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 211
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_77
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 211
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_78
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_79
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_80
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_81
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_82
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_83
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 211
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_84
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 188
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_85
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_86
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_87
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_88
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 188
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_89
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 188
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_90
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 188
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_91
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 188
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_92
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 188
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_93
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 161
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_94
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 161
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_95
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 161
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_96
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 161
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_97
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 161
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_98
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 161
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_99
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 140
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_100
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 140
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_101
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 133
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_102
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 133
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_103
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 133
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_104
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 133
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_105
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 133
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_106
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 139
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_107
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 137
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_108
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 115
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_109
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 115
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_110
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 115
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_111
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 115
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_112
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 115
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_113
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 115
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_114
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 115
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_115
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 115
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_116
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 115
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_117
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 115
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_118
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 115
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_119
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 115
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_120
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 32
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_121
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 99
+        width: 29
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_122
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 99
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_123
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 99
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_124
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 99
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_125
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 99
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_126
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 99
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_127
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 99
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_128
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 99
+        width: 29
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_129
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 5
+        width: 32
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_130
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 5
+        width: 32
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_131
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 5
+        width: 32
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_132
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 5
+        width: 32
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_133
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 5
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_134
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 5
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_135
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 5
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_136
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 5
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MegaMan2Sheet7_137
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 5
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
