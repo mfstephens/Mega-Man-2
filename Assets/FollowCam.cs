@@ -10,7 +10,7 @@ public class FollowCam : MonoBehaviour {
 	void Start () {
 		advanced1 = advanced2 = false;
 		wait = 0;
-		wait_time = 1.1f;
+		wait_time = .8f;
 		mega_man = GameObject.Find ("Mega Man");
 	}
 	
