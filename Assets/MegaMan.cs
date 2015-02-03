@@ -236,10 +236,8 @@ public class MegaMan : MonoBehaviour {
 			died ();
 		}
 		if (otherPEO.coll == PE_Collider.spike) {
-			if(!immune) {
-				enemy_collision = true;
-				health.GetComponent<HealthBar>().decreaseByAmount(4);
-			}
+			health.GetComponent<HealthBar>().empty ();
+			died ();
 		}
 
 	}
@@ -362,6 +360,7 @@ public class MegaMan : MonoBehaviour {
 	void died(){
 //		float temp = Time.time;
 //		while (temp + 3.5f >= Time.time) {};
+		print ("died");
 		Application.LoadLevel (Application.loadedLevel);
 	}
 

@@ -14,8 +14,6 @@ public class TriggerWall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print ("dist: " + (transform.position.x + triggerDistance));
-		print ("megaman: " + mega_man.transform.position.x);
 		if (mega_man.transform.position.x >= (transform.position.x + triggerDistance)) {
 			gameObject.GetComponent<PE_Obj>().still = false;
 		}
