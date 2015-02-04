@@ -20,7 +20,7 @@ public class CustomWeapon : Blaster {
 			bo.damage();
 		} 
 		PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
-		MegaMan.blasters.Remove (gameObject);
+		MegaMan_Custom.blasters.Remove (gameObject);
 		Destroy(gameObject);
 
 		base.OnTriggerEnter (other);

@@ -4,12 +4,10 @@ using System.Collections;
 public class Door_Open_Close : MonoBehaviour {
 	GameObject mega_man;
 	bool done, done1, done2, done3, done4;
-	Renderer[] door_bars;
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
 		done = done1 = done2 = done3 = done4 = false;
-		door_bars = GetComponentsInChildren<Renderer> ();
 	}
 
 

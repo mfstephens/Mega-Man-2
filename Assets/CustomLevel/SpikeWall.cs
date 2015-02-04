@@ -3,35 +3,40 @@ using System.Collections;
 
 public class SpikeWall : MonoBehaviour {
 
-	public float speed = 0.01f;
+	public float speed = .8f;
 	public float risingSpeed = 0.1f;
 	public float shakeDuration = 1f;
-	private MegaMan mega_man;
-	private float startingPos;
+	float max_fallbehind_dist = 4f;
+	private GameObject mega_man;
+	Camera main_cam;
 	
 	// Use this for initialization
 	void Start () {
-		GameObject go = GameObject.Find ("Mega Man");
-		mega_man = go.GetComponent<MegaMan> ();
-		startingPos = this.transform.position.y;
+		main_cam = GameObject.Find ("Main Camera").camera;
+		mega_man = GameObject.Find ("Mega Man");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (mega_man.transform.position.x >= (transform.position.x + 1f)) {
-			if (transform.position.y == startingPos) {
-				GameObject.Find ("Main Camera").GetComponent<FollowCam>().shake = shakeDuration;
-			}
+
+				main_cam.GetComponent<FollowCam_Custom>().shake = shakeDuration;
+		
 			if (transform.position.y <= 0) {
 				Vector3 temp = transform.position;
 				temp.y += risingSpeed;
 				transform.position = temp;
 			}
 		}
-		if (transform.position.y >= 0) {
-			Vector3 temp2 = this.transform.position;
-			temp2.x += speed;
-			this.transform.position = temp2;
+		if (transform.position.y >= -.01) {
+			Vector3 temp2 = transform.position;
+			if(transform.position.x < mega_man.transform.position.x - max_fallbehind_dist){
+				temp2.x = mega_man.transform.position.x - max_fallbehind_dist;
+				transform.position = temp2;
+			} else {
+				temp2.x += speed * Time.deltaTime;
+				transform.position = temp2;
+			}
 		}
 	}
 }

@@ -7,6 +7,10 @@ public enum PE_GravType {
 	constant,
 	planetary
 }
+public enum WeaponType {
+	Blaster,
+	CustomWeapon
+}
 
 public enum PE_Collider {
 	sphere,

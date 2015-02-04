@@ -12,9 +12,11 @@ public class Blaster : MonoBehaviour {
 
 	public virtual void Awake(){
 		sounds = GetComponents<AudioSource>();
-		shooting = sounds[0];
-		deflected = sounds[1];
-		shooting.Play ();
+		if(Application.loadedLevel == 1){
+			shooting = sounds[0];
+			deflected = sounds[1];
+			shooting.Play ();
+		}
 		horzExtent = (Camera.main.orthographicSize * Screen.width / Screen.height);
 		peo = GetComponent<PE_Obj>();
 		peo.grav = PE_GravType.none;
@@ -41,12 +43,14 @@ public class Blaster : MonoBehaviour {
 		float cam_pos = GameObject.Find ("Main Camera").camera.transform.position.x;
 		if (transform.position.x < cam_pos - 1f - horzExtent) {
 			PhysEngine.objs.Remove(GetComponent<PE_Obj>());
-			MegaMan.blasters.Remove(gameObject);
+			if(Application.loadedLevel == 2) MegaMan_Custom.blasters.Remove(gameObject);
+			else MegaMan.blasters.Remove(gameObject);
 			Destroy (gameObject);
 		}
 		if (transform.position.x > cam_pos + 1f + horzExtent) {
 			PhysEngine.objs.Remove(GetComponent<PE_Obj>());
-			MegaMan.blasters.Remove(gameObject);
+			if(Application.loadedLevel == 2) MegaMan_Custom.blasters.Remove(gameObject);
+			else MegaMan.blasters.Remove(gameObject);
 			Destroy (gameObject);
 		}
 	}
