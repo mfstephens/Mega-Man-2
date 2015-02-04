@@ -5,6 +5,7 @@ public class SpikeWall : MonoBehaviour {
 
 	public float speed = 0.01f;
 	public float risingSpeed = 0.1f;
+	public float shakeDuration = 1f;
 	private MegaMan mega_man;
 	private float startingPos;
 	
@@ -19,7 +20,7 @@ public class SpikeWall : MonoBehaviour {
 	void Update () {
 		if (mega_man.transform.position.x >= (transform.position.x + 1f)) {
 			if (transform.position.y == startingPos) {
-				GameObject.Find ("Main Camera").GetComponent<FollowCam>().shake = 10f;
+				GameObject.Find ("Main Camera").GetComponent<FollowCam>().shake = shakeDuration;
 			}
 			if (transform.position.y <= 0) {
 				Vector3 temp = transform.position;

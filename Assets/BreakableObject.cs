@@ -7,7 +7,6 @@ public class BreakableObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		hitPoints = 5;
 	}
 	
 	// Update is called once per frame

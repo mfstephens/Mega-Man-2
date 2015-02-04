@@ -35,8 +35,8 @@ public class FollowCam : MonoBehaviour {
 		mega_man_pos = mega_man.transform.position;
 		// Cam follow for top level
 		if (mega_man_pos.x <= 0.000)return;
-		if (mega_man_pos.x < 69.11 && mega_man_pos.y >= -2.9) Set_cam_x (mega_man_pos);
-		if (mega_man_pos.x >= 69.11 && mega_man_pos.y >= -2.9) return;
+		if (mega_man_pos.x < 200&& mega_man_pos.y >= -2.9) Set_cam_x (mega_man_pos);
+//		if (mega_man_pos.x >= 69.11 && mega_man_pos.y >= -2.9) return;
 
 		// wait to pan down after first level advance
 		if (mega_man_pos.x >= 65.5 && mega_man_pos.x < 75 && mega_man_pos.y <= -2.9 && !advanced1) {

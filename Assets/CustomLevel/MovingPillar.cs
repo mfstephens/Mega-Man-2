@@ -4,15 +4,12 @@ using System.Collections;
 public class MovingPillar : MonoBehaviour {
 
 	public float speed = 0.1f;
-	private float startY;
-	private float endY;
-	public float distance = 5.0f;
-	PE_Dir direction = PE_Dir.down;
+	public float startY = -3.8f;
+	public float endY = -1.8f;
+	public PE_Dir direction;
 
 	// Use this for initialization
 	void Start () {
-		startY = transform.position.y;
-		endY = startY + distance;
 	}
 	
 	// Update is called once per frame
@@ -20,10 +17,8 @@ public class MovingPillar : MonoBehaviour {
 		Vector3 temp = transform.position;
 
 		if (temp.y >= endY) {
-			print ("down");
 			direction = PE_Dir.down;
 		} else if (temp.y <= startY) {
-			print ("up");
 			direction = PE_Dir.up;
 		}
 

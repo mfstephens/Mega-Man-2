@@ -28,7 +28,7 @@ public class ItemObj : MonoBehaviour {
 		float cam_posX = main_cam.transform.position.x;
 		float cam_posY = main_cam.transform.position.y;
 	
-		if (item_type != Item_Obj.OneUp && item_type != Item_Obj.EnergyTank) {
+		if (item_type != Item_Obj.OneUp && item_type != Item_Obj.EnergyTank && item_type != Item_Obj.CustomWeapon) {
 			if (transform.position.x < cam_posX - horzExtent) {
 				PhysEngine.objs.Remove(GetComponent<PE_Obj>());
 				DestroyImmediate(gameObject);
@@ -144,6 +144,11 @@ public class ItemObj : MonoBehaviour {
 				// must implement energy bar for weapon if we decide to do this
 				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
 				Destroy (gameObject);
+			}
+			if(item_type == Item_Obj.CustomWeapon) {
+				mm.currentWeapon = WeaponType.CustomWeapon;
+				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+				Destroy(gameObject);
 			}
 
 		}

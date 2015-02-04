@@ -40,8 +40,8 @@ public enum Item_Obj {
 	EnergyCapsule,
 	EnergyPellet,
 	WeaponEnergyCapsule,
-	WeaponEnergyPellet
-
+	WeaponEnergyPellet,
+	CustomWeapon
 }
 
 public class PhysEngine : MonoBehaviour {
