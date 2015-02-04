@@ -14,7 +14,7 @@ public class MetalMan : MonoBehaviour {
 	static public List<GameObject> razors;
 	bool start, done, throwing, additional_random_throw, pos1, in_transition;
 	Animator anim;
-	Vector3 spawn1, spawn2;
+	Vector3 spawn1, spawn2, spawn3;
 	Platform metal_man_platform;
 	GameObject r_arrow1, r_arrow2, l_arrow1, l_arrow2;
 	bool dead;
@@ -32,11 +32,12 @@ public class MetalMan : MonoBehaviour {
 		time_btwn_throw = .46f;
 		time_btwn_wait = 2.4f;
 		jump_vel = 7.1f;
-		jump_wait = 2.2f;
+		jump_wait = 2.1f;
 		x_slow_rate = 2f;
-		jump_wait_when_attacked = 1.8f;
+		jump_wait_when_attacked = 1.5f;
 		spawn1.Set (148.22f, -16.68f, -3.15f);
 		spawn2.Set (143.59f, -16.68f, -3.15f);
+		spawn3.Set (143.59f, -30f, -3f);
 		in_transition = false;
 		try_reverse_pform = 4.5f;
 		pos1 = true;
@@ -169,11 +170,14 @@ public class MetalMan : MonoBehaviour {
 		for(int i = 0; i < 10; i++){
 		anim.SetBool("dead", true);
 		gameObject.renderer.material.color = new Color(1.3f, 1.3f, 1.3f, 1.0f);
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSeconds(0.17f);
 		gameObject.renderer.material.color = new Color(3f, 3f, 3f, 3f);
-		yield return new WaitForSeconds(.2f);
+		yield return new WaitForSeconds(.17f);
 		}
+		gameObject.renderer.material.color = new Color(1f, 1f, 1f, 0f);
+		yield return new WaitForSeconds(4f);
 		PhysEngine.objs.Remove(GetComponent<PE_Obj>());
+		Application.LoadLevel (0);
 		Destroy(gameObject);
 	}
 	

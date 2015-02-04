@@ -87,7 +87,7 @@ public class FollowCam : MonoBehaviour {
 			transform.position = temp;
 		}
 		if (mega_man_pos.x >= 130.5 && mega_man_pos.x < 133.7)return;
-		if (mega_man_pos.x > 134 && mega_man_pos.x < 136.5 && transform.position.x < 138.5) {
+		if (mega_man_pos.x > 134 && mega_man_pos.x < 136.4 && transform.position.x < 138.44) {
 			Vector3 temp = transform.position;
 			temp.x += 8f * Time.deltaTime;
 			transform.position = temp;

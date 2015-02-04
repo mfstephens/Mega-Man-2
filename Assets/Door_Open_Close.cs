@@ -30,7 +30,6 @@ public class Door_Open_Close : MonoBehaviour {
 		if(!done2 && done1 && mega_man.transform.position.x >= 143.05f) done2 = true;
 		if (done && done1 && done2 && !done3){
 			StartCoroutine(close_and_push());
-			audio.PlayOneShot(audio.clip, 1f);
 			done3 = true;
 		}
 		if(done && done1 && done2 && done3 && done4){
@@ -60,7 +59,9 @@ public class Door_Open_Close : MonoBehaviour {
 
 	IEnumerator close_and_push() {
 		Renderer[] door_bars = GetComponentsInChildren<Renderer> ();
-		yield return new WaitForSeconds(0.17f);
+		yield return new WaitForSeconds(0.65f);
+		audio.PlayOneShot(audio.clip, 1f);
+		yield return new WaitForSeconds(0.165f);
 		for (int i = 15; i >= 0; --i) {
 			door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
 			--i;
