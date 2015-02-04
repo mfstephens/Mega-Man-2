@@ -58,6 +58,15 @@ public class ItemObj : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
+		MegaMan_Custom mmc = other.GetComponent <MegaMan_Custom> ();
+		if(mmc != null){
+			if(item_type == Item_Obj.CustomWeapon) {
+				mmc.currentWeapon = WeaponType.CustomWeapon;
+				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+				Destroy(gameObject);
+			}
+
+		}
 		MegaMan mm = other.GetComponent<MegaMan> ();
 		if(mm != null){
 			being_used = true;
@@ -145,12 +154,6 @@ public class ItemObj : MonoBehaviour {
 				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
 				Destroy (gameObject);
 			}
-			if(item_type == Item_Obj.CustomWeapon) {
-				mm.currentWeapon = WeaponType.CustomWeapon;
-				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
-				Destroy(gameObject);
-			}
-
 		}
 		return;
 	}
