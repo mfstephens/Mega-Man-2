@@ -3,56 +3,65 @@ using System.Collections;
 
 public class Door_Open_Close : MonoBehaviour {
 	GameObject mega_man;
-	bool done1, done;
+	bool done, done1, done2, done3, done4;
 	Renderer[] door_bars;
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
-		done = done1 = false;
+		done = done1 = done2 = done3 = done4 = false;
 		door_bars = GetComponentsInChildren<Renderer> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (done == true){
-			PE_Obj mm = mega_man.GetComponent<PE_Obj>();
-			mm.pos0 = mm.pos1 = mm.transform.position;
-			mm.still = false;
-			mm.vel.y += 2f;
-			for (int i = 15; i >= 0; --i) {
-				door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
-				--i;
-				if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
-				--i;
-				if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
-				--i;
-				if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
-			done = false;
-			}
-		}
-		
-	}
+
+
 	
 	void OnTriggerStay(Collider other){
 		OnTriggerEnter (other);
 	}
 
-	void OnTriggerExit(Collider other){
-		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
-		done1 = true;
-		Vector3 temp = mega_man.transform.position;
-		temp.x += .01f;
-		mega_man.transform.position = temp;
-		if (otherPEO == null) return;
-		if (otherPEO.coll == PE_Collider.megaman) {
+	
+
+	void FixedUpdate () {
+		if(!done2 && done1 && mega_man.transform.position.x < 143.05f){
+			Vector3 temp = mega_man.transform.position;
+			temp.x += 2f * Time.deltaTime;
+			mega_man.transform.position = temp;
+			StopCoroutine(open_and_push());
+		} 
+		if(!done2 && done1 && mega_man.transform.position.x >= 143.05f) done2 = true;
+		if (done && done1 && done2 && !done3){
 			StartCoroutine(close_and_push());
+			audio.PlayOneShot(audio.clip, 1f);
+			done3 = true;
+		}
+		if(done && done1 && done2 && done3 && done4){
+			StopCoroutine(close_and_push());
+			PE_Obj mm = mega_man.GetComponent<PE_Obj>();
+			mm.pos0 = mm.pos1 = mm.transform.position;
+			mm.still = false;
+			mm.vel.y += 2f;
+			done = done1 = done2 = done3 = done4 = false;
 		}
 	}
 	
-	
+
+	void OnTriggerEnter(Collider other) {
+		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
+		if (otherPEO == null) return;
+		if (otherPEO.coll == PE_Collider.megaman && !done) {
+			otherPEO.still = true;
+			otherPEO.vel.x = 0;
+			otherPEO.vel.y = 0;
+			StartCoroutine(open_and_push());
+			done = true;
+			audio.PlayOneShot(audio.clip, 1f);
+		}
+	}
+
+
 	IEnumerator close_and_push() {
+		Renderer[] door_bars = GetComponentsInChildren<Renderer> ();
+		yield return new WaitForSeconds(0.17f);
 		for (int i = 15; i >= 0; --i) {
-			done1 = true;
 			door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
 			--i;
 			if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
@@ -60,26 +69,15 @@ public class Door_Open_Close : MonoBehaviour {
 			if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
 			--i;
 			if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
-			yield return new WaitForSeconds(0.2f);
+			yield return new WaitForSeconds(0.18f);
 		}
-		done = true;
+		done4 = true;
+		yield return null;
 	}
-
 	
-	void OnTriggerEnter(Collider other) {
-		PE_Obj otherPEO = other.GetComponent<PE_Obj>();
-		if (otherPEO == null) return;
-		if (otherPEO.coll == PE_Collider.megaman && !done1) {
-			otherPEO.still = true;
-			otherPEO.vel.x = 0;
-			otherPEO.vel.y = 0;
-			StartCoroutine(open_and_push());
-		}
-		
-	}
-
 	IEnumerator open_and_push() {
-		while (done1) yield return null;
+		Renderer[] door_bars = GetComponentsInChildren<Renderer> ();
+		yield return new WaitForSeconds(0.17f);
 		for (int i = 0; i < 16; ++i) {
 			door_bars[i].material.color = new Color(1f, 1f, 1f, 0f);
 			++i;
@@ -88,10 +86,9 @@ public class Door_Open_Close : MonoBehaviour {
 			if(i < 16) door_bars[i].material.color = new Color(1f, 1f, 1f, 0f);
 			++i;
 			if(i < 16) door_bars[i].material.color = new Color(1f, 1f, 1f, 0f);
-			yield return new WaitForSeconds(0.2f);
+			yield return new WaitForSeconds(0.18f);
 		}
-		Vector3 temp = mega_man.transform.position;
-		temp.x += 2f * Time.deltaTime;
-		mega_man.transform.position = temp;
+		done1 = true;
+		yield return null;
 	}
 }

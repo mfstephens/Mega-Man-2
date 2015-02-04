@@ -9,9 +9,9 @@ public enum WeaponType {
 
 public class MegaMan : MonoBehaviour {
 	PE_Obj peo;
-	bool facingRight, jumping, enemy_collision, immune, advanced1, advanced2, croutine;
-	float 	jump_start, shoot_start, immunity_start, flash_start, wait, collision_anim;
-	Vector3 spawn;
+	bool facingRight, jumping, enemy_collision, immune, advanced1, advanced2, advanced3, croutine, respawning;
+	float jump_start, shoot_start, immunity_start, flash_start, start_wait, collision_anim, respawn_wait_time;
+	Vector3 spawn1, spawn2, spawn3;
 	Animator anim;
 	Camera main_cam;
 	GameObject health;
@@ -22,7 +22,7 @@ public class MegaMan : MonoBehaviour {
 	public float wait_time_left;
 	static public List<GameObject> blasters;
 	public WeaponType currentWeapon;
-
+	public AudioSource[] sounds;
 
 
 	public Vector3 cam_pos_last_frame;
@@ -50,16 +50,21 @@ public class MegaMan : MonoBehaviour {
 		peo = GetComponent<PE_Obj>();
 		anim = GetComponent<Animator> ();
 		main_cam = GameObject.Find ("Main Camera").camera;
+		sounds = GetComponents<AudioSource>();
 		cam_pos_last_frame = main_cam.transform.position;
 		jumping = false;
 		enemy_collision = immune = false;
 		health = GameObject.Find ("Health Bar");
 		immunity_start = -4f;
 		blasters = new List<GameObject>();
-		advanced1 = advanced2 = no_movement = false;
-		wait = 0f;
+		advanced1 = advanced2 = advanced3 = no_movement = respawning = false;
+		start_wait= 0f;
+		respawn_wait_time = 4.3f;
 		collision_anim = .4f;
 		croutine = false;
+		spawn1.Set (-.3f, 1.32f, -3f);
+		spawn2.Set (66.72f, -16.2f, -3f);
+		spawn3.Set (138.5f, -14.78f, -3.1f);
 	}
 
 	// Update is called once per frame
@@ -67,12 +72,13 @@ public class MegaMan : MonoBehaviour {
 	void Update () {
 		set_immunity ();
 		if (immunity_start <= Time.time) enemy_collision = false;
+		check_health_lives_and_respawn_or_die ();
 
-
-		if(level_advance_wait() || no_movement) return;
+		if(level_advance_wait() || no_movement || respawning ) return;
 		else{
 			croutine = false;
 			vel = peo.vel; // Pull velocity from the PE_Obj
+			if(!grounded && peo.ground) sounds[3].Play ();
 			grounded = (peo.ground != null);
 
 			// Horizontal movement
@@ -136,6 +142,8 @@ public class MegaMan : MonoBehaviour {
 	} // end Update()
 
 	void FixedUpdate(){
+
+
 		set_immunity ();
 		if (immunity_start <= Time.time) enemy_collision = false;
 		if (enemy_collision && !immune) {
@@ -150,6 +158,7 @@ public class MegaMan : MonoBehaviour {
 			no_movement = false;
 			return;
 		}
+
 	}
 
 	void OnTriggerStay(Collider other){
@@ -164,6 +173,15 @@ public class MegaMan : MonoBehaviour {
 				no_movement = true;
 				return;
 			}
+			if(other.GetComponent<SpringHandler>() != null){
+				if(!immune && immunity_start < Time.time){
+					enemy_collision = true;
+					// 4 damage
+					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
+					immunity_start = Time.time + collision_duration;
+					sounds[1].Play ();
+				}
+			}
 
 			if(other.GetComponent<MrBotHandler>() != null){
 				if(!immune && immunity_start < Time.time){
@@ -171,6 +189,7 @@ public class MegaMan : MonoBehaviour {
 					// 4 damage
 					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
 					immunity_start = Time.time + collision_duration;
+					sounds[1].Play ();
 				}
 			}
 			if(other.GetComponent<Razor>() != null){
@@ -179,6 +198,7 @@ public class MegaMan : MonoBehaviour {
 					// 4 damage
 					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
 					immunity_start = Time.time + collision_duration;
+					sounds[1].Play ();
 				}
 			}
 			return;
@@ -205,6 +225,7 @@ public class MegaMan : MonoBehaviour {
 				// 8 damage
 				for(int i = 0; i < 8; i++) health.GetComponent<HealthBar>().decreaseByOne();
 				immunity_start = Time.time + collision_duration;
+				sounds[1].Play ();
 			}
 		}
 		else if (otherPEO.coll == PE_Collider.mole) {
@@ -213,6 +234,7 @@ public class MegaMan : MonoBehaviour {
 				// 4 damage
 				for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
 				immunity_start = Time.time + collision_duration;
+				sounds[1].Play ();
 			}
 		}
 		else if (otherPEO.coll == PE_Collider.pierobot) {
@@ -221,14 +243,16 @@ public class MegaMan : MonoBehaviour {
 				// 4 damage
 				for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
 				immunity_start = Time.time + collision_duration;
+				sounds[1].Play ();
 			}
 		}
 		else if (otherPEO.coll == PE_Collider.burokki) {
-			if(!immune){
+			if(!immune && immunity_start < Time.time){
 				enemy_collision = true;
 				// 8 damage
 				for(int i = 0; i < 8; i++) health.GetComponent<HealthBar>().decreaseByOne();
 				immunity_start = Time.time + collision_duration;
+				sounds[1].Play ();
 			}
 		}
 		if (otherPEO.coll == PE_Collider.spikewall) {
@@ -257,7 +281,7 @@ public class MegaMan : MonoBehaviour {
 	}
 
 	IEnumerator flash() {
-		for (int n = 0; n < 20; ++n) {
+		for (int n = 0; n < 12; ++n) {
 			gameObject.renderer.material.color = new Color(0.2f, 0.2f, 0.2f, 1.0f);
 			yield return new WaitForSeconds(0.1f);
 			gameObject.renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -276,11 +300,11 @@ public class MegaMan : MonoBehaviour {
 
 	bool level_advance_wait(){
 		if(transform.position.x > 70 && transform.position.y <= -3 && transform.position.y >= -3.5 && !advanced1){
-			if(wait + 2.2f < Time.time) wait = Time.time;
+			if(start_wait + 2.2f < Time.time) start_wait = Time.time;
 			vel.y = 0;
 			vel.x = 0;
 			GetComponent<PE_Obj>().still = true;
-			if(wait + 1.8f <= Time.time){
+			if(start_wait + 1.8f <= Time.time){
 				GetComponent<PE_Obj>().still = false;
 				advanced1 = true;
 				return false;
@@ -309,11 +333,11 @@ public class MegaMan : MonoBehaviour {
 
 
 		if (transform.position.x > 65.8 && transform.position.x < 73 && transform.position.y <= -11.2 && !advanced2 && transform.position.y >= - 11.7){
-			if(wait + 2.2f < Time.time) wait = Time.time;
+			if(start_wait + 2.2f < Time.time) start_wait = Time.time;
 			vel.y = 0f;
 			vel.x = 0f;
 			GetComponent<PE_Obj>().still = true;
-			if(wait + 1.8f <= Time.time){
+			if(start_wait + 1.8f <= Time.time){
 				GetComponent<PE_Obj>().still = false;
 				advanced2 = true;
 				return false;
@@ -330,7 +354,11 @@ public class MegaMan : MonoBehaviour {
 			peo.ground = GameObject.Find ("Platform14_Backward").GetComponent<PE_Obj>();
 		}
 
-
+		if (transform.position.x > 142.5 && transform.position.y < -15.1){
+			advanced3 = true;
+			sounds[0].Stop();
+			if(!sounds[2].isPlaying && !respawning)sounds[2].Play ();
+		}
 		// if fall through boss parts, put mega man back ontop
 		if(transform.position.x > 135 && transform.position.x < 142 && transform.position.y < -14.85){
 			Vector3 temp = transform.position;
@@ -341,7 +369,15 @@ public class MegaMan : MonoBehaviour {
 			peo.ground = GameObject.Find ("Ground35").GetComponent<PE_Obj>();
 		}
 
-
+		if (transform.position.x > 149.5 && transform.position.y <= -15) {
+			Vector3 temp = transform.position;
+			temp.x = 148.8f;
+			temp.y = 16.66f;
+			transform.position = temp;
+			peo._pos0 = peo.pos1 = temp;
+			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
+			peo.ground = GameObject.Find ("Boss_Platform").GetComponent<PE_Obj>();
+		}
 
 
 
@@ -355,7 +391,68 @@ public class MegaMan : MonoBehaviour {
 		}
 
 		return false;
+	} // end level_advanced_wait
+
+	void check_health_lives_and_respawn_or_die(){
+		if((transform.position.x < 65.38 && transform.position.y < -4)
+		   || (transform.position.x < 130 && transform.position.y < -19)
+		   || (transform.position.x < 160 && transform.position.y < -19)) goto start_resp;
+		if (health.GetComponent<HealthBar>().healthUnits.Count > 0) return;
+	start_resp:
+		if (num_lives > 0 && !respawning) {
+			sounds[0].Stop ();
+			sounds[2].Stop ();
+			sounds[4].Play ();
+			num_lives--;
+			respawning = true;
+			start_wait = Time.time;
+			StartCoroutine(flash_bright());
+			GetComponent<PE_Obj>().still = true;
+			peo.coll = PE_Collider.burokki; //random one with physics and not mega-man so cant get hit
+			no_movement = true;
+			peo.vel.x = 0;
+			peo.vel.y = 0;
+		} 
+		else if(respawning && start_wait + respawn_wait_time > Time.time) return;
+		else if(respawning && start_wait + respawn_wait_time < Time.time){
+			if(transform.position.x < 74 && transform.position.x > -5){
+				transform.position = spawn1;
+				peo._pos0 = spawn1;
+				peo._pos1 = spawn1;
+			}
+			else if(transform.position.x >= 74 && transform.position.x < 130){
+				transform.position = spawn2;
+				peo._pos0 = spawn2;
+				peo._pos1 = spawn2;
+			}
+			else if(transform.position.x >= 130 && transform.position.x < 160){
+				transform.position = spawn3;
+				peo._pos0 = spawn3;
+				peo._pos1 = spawn3;
+			}
+			sounds[0].Play ();
+			health.GetComponent<HealthBar>().increaseByAmount(28);
+			GetComponent<PE_Obj>().still = false;
+			no_movement = false;
+			respawning = false;
+			peo.coll = PE_Collider.megaman;
+			gameObject.renderer.material.color = new Color(1f, 1f, 1f, 1.0f);
+		} else died ();	
 	}
+
+
+	IEnumerator flash_bright(){
+		for(int i = 0; i < 6; i++){
+			gameObject.renderer.material.color = new Color(1.3f, 1.3f, 1.3f, 1.0f);
+			yield return new WaitForSeconds(0.32f);
+			gameObject.renderer.material.color = new Color(2.3f, 2.3f, 2.3f, 1.0f);
+			yield return new WaitForSeconds(.32f);
+		}
+	}
+
+
+
+
 
 	void died(){
 //		float temp = Time.time;

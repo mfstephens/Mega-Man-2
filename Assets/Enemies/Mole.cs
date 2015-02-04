@@ -48,7 +48,7 @@ public class Mole : MonoBehaviour {
 	void FixedUpdate(){
 		Vector3 mm_pos = mega_man.transform.position;
 		if(mm_pos.x < 28.72f) group1_spawn = group2_spawn = group3_spawn = Time.time - respawn_rate1*1.25f;
-		if (mm_pos.x >= 29.72f && mm_pos.x < 42.57) {
+		if (mm_pos.x >= 29.72f && mm_pos.x < 44.5) {
 			// spawn moles
 			mole_spawn();
 		}
