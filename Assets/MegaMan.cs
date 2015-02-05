@@ -9,7 +9,7 @@ public class MegaMan : MonoBehaviour {
 	Vector3 spawn1, spawn2, spawn3;
 	Animator anim;
 	Camera main_cam;
-	GameObject health;
+	public GameObject health;
 
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
