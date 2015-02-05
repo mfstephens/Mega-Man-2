@@ -9,19 +9,24 @@ public class SpikeWall : MonoBehaviour {
 	float max_fallbehind_dist = 4f;
 	private GameObject mega_man;
 	Camera main_cam;
+	private float startingPos;
 	
 	// Use this for initialization
 	void Start () {
 		main_cam = GameObject.Find ("Main Camera").camera;
 		mega_man = GameObject.Find ("Mega Man");
+		startingPos = this.transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (transform.position.x >= 95.5f) {
+			return;
+		}
 		if (mega_man.transform.position.x >= (transform.position.x + 1f)) {
-
-				main_cam.GetComponent<FollowCam_Custom>().shake = shakeDuration;
-		
+			if (transform.position.y == startingPos) {
+				GameObject.Find ("Main Camera").GetComponent<FollowCam_Custom>().shake = shakeDuration;
+			}
 			if (transform.position.y <= 0) {
 				Vector3 temp = transform.position;
 				temp.y += risingSpeed;

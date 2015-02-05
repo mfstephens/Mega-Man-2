@@ -196,7 +196,15 @@ public class MegaMan_Custom : MonoBehaviour {
 		
 		if (GetComponent<PE_Obj>().still) return; //still is set when picking up health pellets, and no damage should be taken while frozen
 		else {
-
+			if (otherPEO.coll == PE_Collider.press) {
+				if(!immune && immunity_start < Time.time){
+					enemy_collision = true;
+					// 8 damage
+					for(int i = 0; i < 8; i++) health.GetComponent<HealthBar>().decreaseByOne();
+					immunity_start = Time.time + collision_duration;
+					sounds[1].Play ();
+				}
+			}
 			if (otherPEO.coll == PE_Collider.spikewall) {
 				health.GetComponent<HealthBar>().empty();
 				died ();
