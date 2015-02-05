@@ -7,6 +7,7 @@ public class Mole : MonoBehaviour {
 	public float respawn_rate1 = 8f;
 	public float respawn_rate2 = 9f;
 	public float respawn_rate3 = 11f;
+	float moles_infront, moles_total;
 	public float spawn_depth = .7f;
 	public float mole_vel = .75f;
 	float group1_spawn, group2_spawn, group3_spawn;
@@ -15,7 +16,7 @@ public class Mole : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
-		group1_spawn = group2_spawn = group3_spawn = 0f;
+		group1_spawn = group2_spawn = group3_spawn = moles_infront = 0f;
 		GameObject g4 = GameObject.Find ("Ground4");
 		GameObject g5 = GameObject.Find ("Ground5");
 		GameObject g6 = GameObject.Find ("Ground6");
@@ -43,48 +44,55 @@ public class Mole : MonoBehaviour {
 		g43_right = g43.transform.position.x + g43.transform.lossyScale.x / 2;
 		g40_bottom = g40.transform.position.y - g40.transform.lossyScale.y / 2;
 	}
-
-
+	
+	
 	void FixedUpdate(){
+		moles_infront = moles_total = 0f;
 		Vector3 mm_pos = mega_man.transform.position;
 		if(mm_pos.x < 28.72f) group1_spawn = group2_spawn = group3_spawn = Time.time - respawn_rate1*1.25f;
-		if (mm_pos.x >= 29.72f && mm_pos.x < 44.5) {
+		if (mm_pos.x >= 29.72f && mm_pos.x < 45) {
 			// spawn moles
 			mole_spawn();
 		}
-
+		
 		//update velocity
 		foreach (GameObject mole in GameObject.FindGameObjectsWithTag("mr_mole_up")) {
 			Vector3 mole_pos = mole.transform.position;
 			mole_pos.y += mole_vel * Time.deltaTime;
 			mole.transform.position = mole_pos;
-			if(mole_pos.y > 5 || mole_pos.y < -5){
+			if(mole_pos.y > 2.5 || mole_pos.y < -5){
 				PhysEngine.objs.Remove(mole.GetComponent<PE_Obj>());
+				mole.GetComponent<RandomItemDrop>().should_drop = false;
 				Destroy(mole);
-			}
+			} else if(mole != null && mole_pos.y < 1.35f && mole_pos.x > mega_man.transform.position.x) moles_infront++;
 		}
 		foreach (GameObject mole in GameObject.FindGameObjectsWithTag("mr_mole_down")) {
 			Vector3 mole_pos = mole.transform.position;
 			mole_pos.y -= mole_vel * Time.deltaTime;
 			mole.transform.position = mole_pos;
-			if(mole_pos.y > 5 || mole_pos.y < -5){
+			if(mole_pos.y < -.36 && mole_pos.x > 41.5) mole.GetComponent<RandomItemDrop>().should_drop = false;
+			if(mole_pos.y < -1.3 && mole_pos.x > 34.58 && mole_pos.x < 37.2) mole.GetComponent<RandomItemDrop>().should_drop = false;
+			if(mole_pos.y > 5 || mole_pos.y < -2.5){
 				PhysEngine.objs.Remove(mole.GetComponent<PE_Obj>());
+				mole.GetComponent<RandomItemDrop>().should_drop = false;
 				Destroy(mole);
-			}
+			} else if(mole != null && (mole_pos.y > -2.1f && mole_pos.x > mega_man.transform.position.x ) 
+			          || (mole_pos.y > -.4f && mole_pos.x > mega_man.transform.position.x + .3f)) moles_infront++;
 		}
-
-
+		
+		if (moles_infront <= 2 && mm_pos.x >= 30f && mm_pos.x < 45f) {
+			group3_spawn -= ((respawn_rate3 - (Time.time - group3_spawn))/1.15f);
+		}
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-	
 	}
-
-
+	
+	
 	void mole_spawn(){
 		Vector3 mole_pos = mega_man.transform.position;
-		 if((group1_spawn + respawn_rate1) <= Time.time) {
+		if((group1_spawn + respawn_rate1) <= Time.time) {
 			group1_spawn = Time.time;
 			GameObject mole1 = Instantiate(MolePrefab) as GameObject;
 			mole_pos = mega_man.transform.position;
@@ -99,7 +107,7 @@ public class Mole : MonoBehaviour {
 			mole2.tag = "mr_mole_up";
 			mole2.transform.position = spawn_location(mole2);
 		} 
-		 if((group2_spawn + respawn_rate2) <= Time.time) {
+		if((group2_spawn + respawn_rate2) <= Time.time) {
 			group2_spawn = Time.time;
 			GameObject mole1 = Instantiate(MolePrefab) as GameObject;
 			mole_pos = mega_man.transform.position;
@@ -118,26 +126,26 @@ public class Mole : MonoBehaviour {
 		} 
 		if((group3_spawn + respawn_rate3) <= Time.time) {
 			group3_spawn = Time.time;
+			float random = Random.Range(1,3);
 			GameObject mole1 = Instantiate(MolePrefab) as GameObject;
 			mole_pos = mega_man.transform.position;
-			mole_pos.x += 1.5f;
+			mole_pos.x += random + .5f;
 			mole1.transform.position = mole_pos;
 			mole1.tag = "mr_mole_down";
 			mole_pos = spawn_location(mole1);
-			mole_pos.y += .5f;
 			mole1.transform.position = mole_pos;
 			mole1.transform.eulerAngles = new Vector3 (180, 0, 0);
 			GameObject mole2 = Instantiate(MolePrefab) as GameObject;
+			float random2 = Random.Range(2,3);
 			mole_pos = mega_man.transform.position;
-			mole_pos.x += 3.3f;
+			mole_pos.x += random2 +.5f;
 			mole2.transform.position = mole_pos;
 			mole2.tag = "mr_mole_up";
 			mole_pos = spawn_location(mole2);
-			mole_pos.y -= .5f;
 			mole2.transform.position = mole_pos;
 		} 
 	}
-
+	
 	Vector3 spawn_location (GameObject mole){
 		Vector3 mole_pos = mole.transform.position;
 		bool going_up = false;
@@ -169,7 +177,7 @@ public class Mole : MonoBehaviour {
 				mole_pos.y = g40_bottom + spawn_depth;
 			}
 		}
-
+		
 		return mole_pos;
 	}
 }

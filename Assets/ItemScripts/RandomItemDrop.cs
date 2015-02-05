@@ -4,6 +4,7 @@ using System.Collections;
 public class RandomItemDrop : MonoBehaviour {
 	float random, energyCapsule, energyPellet, weaponEnergyCapsule, weaponEnergyPellet;
 	GameObject temp;
+	public bool should_drop = true;
 	// Use this for initialization
 	void Start () {
 		random = Random.Range (0, 100);
@@ -20,6 +21,7 @@ public class RandomItemDrop : MonoBehaviour {
 	}
 
 	void OnDestroy(){
+		if(!should_drop) return;
 		Vector3 set_location = transform.position;
 		if(random <= energyPellet) temp = Instantiate((GameObject)Resources.Load("EnergyPelletPrefab")) as GameObject;
 		else if(random <= weaponEnergyPellet && random > energyPellet) temp = Instantiate((GameObject)Resources.Load("WeaponEnergyPelletPrefab")) as GameObject;
