@@ -11,6 +11,7 @@ public class MegaMan : MonoBehaviour {
 	Camera main_cam;
 	public GameObject health;
 
+	private Color originalColor;
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
 	public float num_lives = 3f;
@@ -19,7 +20,7 @@ public class MegaMan : MonoBehaviour {
 	public WeaponType currentWeapon;
 	public AudioSource[] sounds;
 
-
+	public bool jeremyMode = false;
 	public Vector3 cam_pos_last_frame;
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
@@ -59,6 +60,7 @@ public class MegaMan : MonoBehaviour {
 		spawn1.Set (-.3f, 1.32f, -3f);
 		spawn2.Set (66.72f, -16.2f, -3f);
 		spawn3.Set (138.5f, -14.78f, -3.1f);
+		originalColor = gameObject.renderer.material.color;
 	}
 
 	// Update is called once per frame
@@ -105,6 +107,11 @@ public class MegaMan : MonoBehaviour {
 				vel.y = jumpVel;
 			}
 			// end jump
+
+			// jeremy mode
+			if (Input.GetKeyDown(KeyCode.J)) {
+				jeremyMode = !jeremyMode;
+			}
 
 			// shoot
 			if ((Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) && blasters.Count < 3) {
@@ -300,6 +307,13 @@ public class MegaMan : MonoBehaviour {
 	}
 
 	void set_immunity(){
+		if (jeremyMode) {
+			gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+			immune = true;
+			return;
+		} else {
+			gameObject.renderer.material.color = originalColor;
+		}
 		if (immunity_start <= Time.time &&( immunity_start + immunity_duration) > Time.time){
 			immune = true;
 			no_movement = false;
@@ -466,7 +480,6 @@ public class MegaMan : MonoBehaviour {
 	void died(){
 //		float temp = Time.time;
 //		while (temp + 3.5f >= Time.time) {};
-		print ("died");
 		Application.LoadLevel (Application.loadedLevel);
 	}
 
