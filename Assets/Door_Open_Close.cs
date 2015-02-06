@@ -22,6 +22,7 @@ public class Door_Open_Close : MonoBehaviour {
 	
 
 	void FixedUpdate () {
+		if (mega_man.transform.position.x < transform.position.x) GetComponents<AudioSource> () [1].Stop ();
 		if(!done2 && done1 && mega_man.transform.position.x < move_to_pos){
 			Vector3 temp = mega_man.transform.position;
 			temp.x += 2f * Time.deltaTime;

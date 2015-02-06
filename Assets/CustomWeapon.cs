@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CustomWeapon : Blaster {
-
 	// Use this for initialization
 	public override void Awake() {
 		base.Awake ();
@@ -18,10 +17,10 @@ public class CustomWeapon : Blaster {
 		if (other.GetComponent<BreakableObject> () != null) {
 			BreakableObject bo = other.GetComponent<BreakableObject>();
 			bo.damage();
+			PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+			MegaMan_Custom.blasters.Remove (gameObject);
+			Destroy(gameObject);
 		} 
-		PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
-		MegaMan_Custom.blasters.Remove (gameObject);
-		Destroy(gameObject);
 
 		base.OnTriggerEnter (other);
 	}

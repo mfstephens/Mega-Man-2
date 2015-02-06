@@ -190,6 +190,7 @@ public class MegaMan : MonoBehaviour {
 				no_movement = true;
 				return;
 			}
+			if(jeremyMode) return;
 			if(other.GetComponent<SpringHandler>() != null){
 				if(!immune && immunity_start < Time.time){
 					enemy_collision = true;
@@ -220,7 +221,6 @@ public class MegaMan : MonoBehaviour {
 			}
 			return;
 		}
-
 		// moving platforms only should affect megaman
 		if ((this.GetComponent<MegaMan>() != null) && (otherPEO.GetComponent<Platform>() != null)) {
 			Platform pf = otherPEO.GetComponent<Platform>() as Platform;
@@ -234,7 +234,7 @@ public class MegaMan : MonoBehaviour {
 				displacementVelX = 0f;
 			}
 		}
-
+		if(jeremyMode) return;
 		if (GetComponent<PE_Obj>().still) return; //still is set when picking up health pellets, and no damage should be taken while frozen
 		else if (otherPEO.coll == PE_Collider.press) {
 			if(!immune && immunity_start < Time.time){

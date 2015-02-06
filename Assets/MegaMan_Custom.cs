@@ -11,7 +11,8 @@ public class MegaMan_Custom : MonoBehaviour {
 	Vector3 spawn1, spawn2;
 	Animator anim;
 	public GameObject health;
-	
+
+	public bool jeremyMode = false;
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
 	public float num_lives = 3f;
@@ -21,6 +22,7 @@ public class MegaMan_Custom : MonoBehaviour {
 	public AudioSource[] sounds;
 	public bool hit_by_ice;
 
+	Color originalColor;
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
 	public bool		grounded = false;
@@ -60,6 +62,7 @@ public class MegaMan_Custom : MonoBehaviour {
 		coroutine = false;
 		spawn1.Set (.05f, -1.32f, -4f);
 		spawn2.Set (111.27f, -.7f, -4f);
+		originalColor = gameObject.renderer.material.color;
 	}
 	
 	// Update is called once per frame
@@ -106,6 +109,11 @@ public class MegaMan_Custom : MonoBehaviour {
 				vel.y = jumpVel;
 			}
 			// end jump
+
+			// jeremy mode
+			if (Input.GetKeyDown(KeyCode.J)) {
+				jeremyMode = !jeremyMode;
+			}
 			
 			// shoot
 			if ((Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) && blasters.Count < 3) {
@@ -182,17 +190,19 @@ public class MegaMan_Custom : MonoBehaviour {
 				no_movement = true;
 				return;
 			}
+			if(jeremyMode) return;
 			if(other.GetComponent<IceBall>() != null){
 				if(!immune && immunity_start < Time.time){
 					if(other.GetComponent<IceBall>().stomp) {
 						enemy_collision = true;
-						// 6 damage
-						for(int i = 0; i < 6; i++) health.GetComponent<HealthBar>().decreaseByOne();
+						// 5 damage
+						for(int i = 0; i < 5; i++) health.GetComponent<HealthBar>().decreaseByOne();
 						immunity_start = Time.time + collision_duration;
 						sounds[1].Play ();
 						return;
 					} else{
 						for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
+						immunity_start = Time.time + collision_duration;
 						sounds[1].Play ();
 						no_movement = true;
 						peo.still = true;
@@ -203,10 +213,12 @@ public class MegaMan_Custom : MonoBehaviour {
 					}
 				}
 			}
+			return;
 		}
-		
+		if(jeremyMode) return;
 		if (GetComponent<PE_Obj>().still) return; //still is set when picking up health pellets, and no damage should be taken while frozen
 		else {
+			if(jeremyMode) return;
 			if (otherPEO.coll == PE_Collider.press) {
 				if(!immune && immunity_start < Time.time){
 					enemy_collision = true;
@@ -252,6 +264,13 @@ public class MegaMan_Custom : MonoBehaviour {
 	}
 	
 	void set_immunity(){
+		if (jeremyMode) {
+			gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+			immune = true;
+			return;
+		} else {
+			gameObject.renderer.material.color = originalColor;
+		}
 		if (hit_by_ice && (frozen_start + frozen_duration < Time.time)) {
 			peo.still = false;
 			no_movement = false;
@@ -287,9 +306,7 @@ public class MegaMan_Custom : MonoBehaviour {
 		else if(respawning && start_wait + respawn_wait_time > Time.time) return;
 		else if(respawning && start_wait + respawn_wait_time < Time.time){
 			if(transform.position.x < 98){
-				transform.position = spawn1;
-				peo._pos0 = spawn1;
-				peo._pos1 = spawn1;
+				died ();	
 			}
 			else{
 				transform.position = spawn2;

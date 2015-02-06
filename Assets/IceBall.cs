@@ -6,18 +6,18 @@ public class IceBall : MonoBehaviour {
 	public float	horzExtent, velX, velY;
 	public bool stomp;
 	GameObject 	mega_man, custom_boss;
-	public float rate = 2.3f, y_rate, x_rate, wait_time, wait_time_start;
+	public float rate = 1.8f, y_rate, x_rate, wait_time, wait_time_start;
 	// Use this for initialization
 	
 	void Awake(){
 		horzExtent = (Camera.main.orthographicSize * Screen.width / Screen.height);
 		mega_man = GameObject.Find ("Mega Man");
 		custom_boss = GameObject.Find ("Boss_Custom");
-		wait_time = .2f;
+		wait_time = .8f;
 		wait_time_start = Time.time;
+		gameObject.renderer.material.color = new Color(1f, 1f, 1f, 0f);
 		if(stomp){
 			wait_time = 0f;
-			gameObject.renderer.material.color = new Color(1f, 1f, 1f, 0f);
 		}
 	}
 	
@@ -30,11 +30,14 @@ public class IceBall : MonoBehaviour {
 			Vector3 end_of_face = custom_boss.transform.position;		
 			// boss is facing forwards
 			if (custom_boss.transform.eulerAngles.y != 0) {
-				end_of_face.x -= .4f;
-				end_of_face.y += .37f;
+				end_of_face.x -= .6f;
+				end_of_face.y += .4f;
+				if(mega_man.transform.position.y > 0f)transform.eulerAngles = new Vector3(0, 180, 90);
 			} else {
-				end_of_face.x += .4f;
-				end_of_face.y += .37f;
+				end_of_face.x += .6f;
+				end_of_face.y += .4f;
+				if(mega_man.transform.position.y > 0f)transform.eulerAngles = new Vector3(0, 0, 90);
+				else transform.eulerAngles = new Vector3(0, 0, 40);
 			}
 			transform.position = end_of_face;
 			
@@ -51,6 +54,7 @@ public class IceBall : MonoBehaviour {
 			}
 			return;
 		}
+		if(!stomp) gameObject.renderer.material.color = new Color(1f, 1f, 1f, 1f);
 		Vector3 temp = transform.position;
 		temp.y += y_rate * Time.deltaTime;
 		temp.x += x_rate* Time.deltaTime;

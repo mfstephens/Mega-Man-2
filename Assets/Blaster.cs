@@ -12,11 +12,9 @@ public class Blaster : MonoBehaviour {
 
 	public virtual void Awake(){
 		sounds = GetComponents<AudioSource>();
-		if(Application.loadedLevel == 1){
-			shooting = sounds[0];
-			deflected = sounds[1];
-			shooting.Play ();
-		}
+		shooting = sounds[0];
+		deflected = sounds[1];
+		shooting.Play ();
 		horzExtent = (Camera.main.orthographicSize * Screen.width / Screen.height);
 		peo = GetComponent<PE_Obj>();
 		peo.grav = PE_GravType.none;
@@ -112,18 +110,26 @@ public class Blaster : MonoBehaviour {
 			return;
 		}
 		else if (otherPEO.coll == PE_Collider.boss) {
-			other.GetComponent<MetalMan>().flashing = true;
-			GameObject.Find ("Health Bar Boss").GetComponent<HealthBarBoss>().decreaseByOne();
-			if(GetComponent<PE_Obj>() != null){
-				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
-				MegaMan.blasters.Remove(gameObject);
-				Destroy (gameObject);
-			}
+			if(Application.loadedLevel == 1){
+				other.GetComponent<MetalMan>().flashing = true;
+				GameObject.Find ("Health Bar Boss").GetComponent<HealthBarBoss>().decreaseByOne();
+				if(GetComponent<PE_Obj>() != null){
+					PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+					MegaMan.blasters.Remove(gameObject);
+					Destroy (gameObject);
+				}
 			return;
-		}
+			} else{
+					deflected.Play ();
+					if(GetComponent<PE_Obj>() != null){
+						peo.vel.x = - speed;
+						peo.vel.y = Mathf.Abs(speed/2);
+					}
+				}
+				return;
+			
+			}
+
 	}
-	
-
-
 }
 
