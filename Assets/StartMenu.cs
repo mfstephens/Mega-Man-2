@@ -66,6 +66,7 @@ public class StartMenu : MonoBehaviour {
 				Text lives = GameObject.Find ("NumLives").GetComponent<Text>();
 				lives.text = ": " + mm2.num_lives.ToString();
 				while (tanks.Count != mm2.num_energy_tanks) {
+					print ("tank");
 					GameObject go = Instantiate(energyTankPrefab) as GameObject;
 					go.transform.SetParent(menu.transform, false);
 					tanks.Push(go);

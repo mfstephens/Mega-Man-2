@@ -22,15 +22,6 @@ public class FollowCam : MonoBehaviour {
 	void Update(){
 
 
-		if (shake > 0) {
-			Vector3 random = Random.insideUnitSphere * shakeAmount;
-			random.z = -100f;
-			transform.position = random;
-			shake -= Time.deltaTime * decreaseFactor;
-		} else {
-			shake = 0f;
-		}
-
 		// Get the position of mega man
 		mega_man_pos = mega_man.transform.position;
 		// Cam follow for top level

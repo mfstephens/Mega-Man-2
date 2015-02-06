@@ -65,6 +65,11 @@ public class ItemObj : MonoBehaviour {
 				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
 				Destroy(gameObject);
 			}
+			if(item_type == Item_Obj.EnergyTank){
+				mmc.num_energy_tanks++;
+				PhysEngine.objs.Remove(this.GetComponent<PE_Obj>());
+				Destroy (gameObject);
+			}
 
 		}
 		MegaMan mm = other.GetComponent<MegaMan> ();

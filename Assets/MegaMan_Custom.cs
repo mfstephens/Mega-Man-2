@@ -11,16 +11,18 @@ public class MegaMan_Custom : MonoBehaviour {
 	Vector3 spawn1, spawn2;
 	Animator anim;
 	public GameObject health;
-	
+
+	private Color originalColor;
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
-	public float num_lives = 3f;
+	public float num_lives = 100f;
 	public float wait_time_left;
 	static public List<GameObject> blasters;
 	public WeaponType currentWeapon;
 	public AudioSource[] sounds;
 	public bool hit_by_ice;
 
+	public bool jeremyMode = false;
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
 	public bool		grounded = false;
@@ -60,6 +62,7 @@ public class MegaMan_Custom : MonoBehaviour {
 		coroutine = false;
 		spawn1.Set (.05f, -1.32f, -4f);
 		spawn2.Set (111.27f, -.7f, -4f);
+		originalColor = gameObject.renderer.material.color;
 	}
 	
 	// Update is called once per frame
@@ -106,6 +109,11 @@ public class MegaMan_Custom : MonoBehaviour {
 				vel.y = jumpVel;
 			}
 			// end jump
+
+			// jeremy mode
+			if (Input.GetKeyDown(KeyCode.J)) {
+				jeremyMode = !jeremyMode;
+			}
 			
 			// shoot
 			if ((Input.GetKeyDown (",") || Input.GetKeyDown (KeyCode.Z)) && blasters.Count < 3) {
@@ -217,12 +225,15 @@ public class MegaMan_Custom : MonoBehaviour {
 				}
 			}
 			if (otherPEO.coll == PE_Collider.spikewall) {
-				health.GetComponent<HealthBar>().empty();
-				died ();
+				if (!immune) {
+					health.GetComponent<HealthBar>().empty();
+				}
 			}
 			if (otherPEO.coll == PE_Collider.spike) {
-				health.GetComponent<HealthBar>().empty ();
-				died ();
+				if (!immune) {
+					health.GetComponent<HealthBar>().empty ();
+				}
+
 			}
 		}
 		
@@ -252,6 +263,13 @@ public class MegaMan_Custom : MonoBehaviour {
 	}
 	
 	void set_immunity(){
+		if (jeremyMode) {
+			gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+			immune = true;
+			return;
+		} else {
+			gameObject.renderer.material.color = originalColor;
+		}
 		if (hit_by_ice && (frozen_start + frozen_duration < Time.time)) {
 			peo.still = false;
 			no_movement = false;
@@ -303,6 +321,7 @@ public class MegaMan_Custom : MonoBehaviour {
 			respawning = false;
 			peo.coll = PE_Collider.megaman;
 			gameObject.renderer.material.color = new Color(1f, 1f, 1f, 1.0f);
+			died ();
 		} else died ();	
 	}
 	
@@ -323,7 +342,6 @@ public class MegaMan_Custom : MonoBehaviour {
 	void died(){
 		//		float temp = Time.time;
 		//		while (temp + 3.5f >= Time.time) {};
-		print ("died");
 		Application.LoadLevel (Application.loadedLevel);
 	}
 	
