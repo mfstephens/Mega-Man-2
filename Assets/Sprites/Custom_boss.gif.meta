@@ -1,0 +1,850 @@
+fileFormatVersion: 2
+guid: e4ee1c66b59143a418bdf4495b4d7a9d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Custom_boss_0
+    21300002: Custom_boss_1
+    21300004: Custom_boss_2
+    21300006: Custom_boss_3
+    21300008: Custom_boss_4
+    21300010: Custom_boss_5
+    21300012: Custom_boss_6
+    21300014: Custom_boss_7
+    21300016: Custom_boss_8
+    21300018: Custom_boss_9
+    21300020: Custom_boss_10
+    21300022: Custom_boss_11
+    21300024: Custom_boss_12
+    21300026: Custom_boss_13
+    21300028: Custom_boss_14
+    21300030: Custom_boss_15
+    21300032: Custom_boss_16
+    21300034: Custom_boss_17
+    21300036: Custom_boss_18
+    21300038: Custom_boss_19
+    21300040: Custom_boss_20
+    21300042: Custom_boss_21
+    21300044: Custom_boss_22
+    21300046: Custom_boss_23
+    21300048: Custom_boss_24
+    21300050: Custom_boss_25
+    21300052: Custom_boss_26
+    21300054: Custom_boss_27
+    21300056: Custom_boss_28
+    21300058: Custom_boss_29
+    21300060: Custom_boss_30
+    21300062: Custom_boss_31
+    21300064: Custom_boss_32
+    21300066: Custom_boss_33
+    21300068: Custom_boss_34
+    21300070: Custom_boss_35
+    21300072: Custom_boss_36
+    21300074: Custom_boss_37
+    21300076: Custom_boss_38
+    21300078: Custom_boss_39
+    21300080: Custom_boss_40
+    21300082: Custom_boss_41
+    21300084: Custom_boss_42
+    21300086: Custom_boss_43
+    21300088: Custom_boss_44
+    21300090: Custom_boss_45
+    21300092: Custom_boss_46
+    21300094: Custom_boss_47
+    21300096: Custom_boss_48
+    21300098: Custom_boss_49
+    21300100: Custom_boss_50
+    21300102: Custom_boss_51
+    21300104: Custom_boss_52
+    21300106: Custom_boss_53
+    21300108: Custom_boss_54
+    21300110: Custom_boss_55
+    21300112: Custom_boss_56
+    21300114: Custom_boss_57
+    21300116: Custom_boss_58
+    21300118: Custom_boss_59
+    21300120: Custom_boss_60
+    21300122: Custom_boss_61
+    21300124: Custom_boss_62
+    21300126: Custom_boss_63
+    21300128: Custom_boss_64
+    21300130: Custom_boss_65
+    21300132: Custom_boss_66
+    21300134: Custom_boss_67
+    21300136: Custom_boss_68
+    21300138: Custom_boss_69
+    21300140: Custom_boss_70
+    21300142: Custom_boss_71
+    21300144: Custom_boss_72
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 35
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Custom_boss_0
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 941
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 941
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 941
+        width: 28
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_3
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 940
+        width: 70
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_4
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 847
+        width: 109
+        height: 124
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 844
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 844
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_7
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 844
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 844
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_9
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 845
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_10
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 843
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_11
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 851
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 778
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_13
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 781
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_14
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 781
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_15
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 778
+        width: 69
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_16
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 779
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_17
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 780
+        width: 72
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_18
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 778
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_19
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 782
+        width: 57
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 712
+        width: 64
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_21
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 715
+        width: 81
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_22
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 710
+        width: 77
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_23
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 710
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_24
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 710
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_25
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 629
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_26
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 630
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_27
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 635
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_28
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 633
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_29
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 628
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_30
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 628
+        width: 57
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_31
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 631
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_32
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 549
+        width: 62
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_33
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 550
+        width: 112
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_34
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 551
+        width: 106
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_35
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 551
+        width: 96
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_36
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 550
+        width: 76
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_37
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 471
+        width: 62
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_38
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 476
+        width: 70
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_39
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 478
+        width: 76
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_40
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 478
+        width: 78
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_41
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 371
+        width: 39
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_42
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 387
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_43
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 387
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_44
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 391
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_45
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 392
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_46
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 392
+        width: 93
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_47
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 392
+        width: 93
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_48
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 288
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_49
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 290
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_50
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 289
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_51
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 288
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_52
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 289
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_53
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 288
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_54
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 289
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_55
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 207
+        width: 55
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_56
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 208
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_57
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 213
+        width: 63
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_58
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 215
+        width: 64
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_59
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 211
+        width: 65
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_60
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 216
+        width: 59
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_61
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 214
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_62
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 214
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_63
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 214
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_64
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 104
+        width: 112
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_65
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 103
+        width: 105
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_66
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 104
+        width: 109
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_67
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 103
+        width: 112
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_68
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 9
+        width: 98
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_69
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 9
+        width: 100
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_70
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 9
+        width: 96
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_71
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 11
+        width: 97
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom_boss_72
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 14
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

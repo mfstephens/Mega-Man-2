@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 public class MegaMan_Custom : MonoBehaviour {
 	PE_Obj peo;
-	bool facingRight, jumping, enemy_collision, immune, coroutine, respawning;
+	bool facingRight, jumping, enemy_collision, immune, coroutine, respawning, hit_by_ice;
 	float jump_start, shoot_start, immunity_start, flash_start, start_wait, collision_anim, respawn_wait_time;
 	Vector3 spawn1, spawn2, spawn3;
 	Animator anim;
-	GameObject health;
+	public GameObject health;
 	
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
@@ -41,6 +41,7 @@ public class MegaMan_Custom : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		hit_by_ice = false;
 		peo = GetComponent<PE_Obj>();
 		anim = GetComponent<Animator> ();
 		sounds = GetComponents<AudioSource>();
@@ -70,7 +71,7 @@ public class MegaMan_Custom : MonoBehaviour {
 		else{
 			coroutine = false;
 			vel = peo.vel; // Pull velocity from the PE_Obj
-			//if(!grounded && peo.ground) sounds[3].Play ();
+			if(!grounded && peo.ground) sounds[3].Play ();
 			grounded = (peo.ground != null);
 			
 			// Horizontal movement
@@ -180,19 +181,6 @@ public class MegaMan_Custom : MonoBehaviour {
 				return;
 			}
 		}
-		// moving platforms only should affect megaman
-		if ((this.GetComponent<MegaMan>() != null) && (otherPEO.GetComponent<Platform>() != null)) {
-			Platform pf = otherPEO.GetComponent<Platform>() as Platform;
-			
-			// check what direction platform is moving
-			if (pf.type == PlatformType.forward) {
-				displacementVelX = pf.speed;
-			} else if (pf.type == PlatformType.backward) {
-				displacementVelX = -pf.speed;
-			} else {
-				displacementVelX = 0f;
-			}
-		}
 		
 		if (GetComponent<PE_Obj>().still) return; //still is set when picking up health pellets, and no damage should be taken while frozen
 		else {
@@ -212,6 +200,15 @@ public class MegaMan_Custom : MonoBehaviour {
 			if (otherPEO.coll == PE_Collider.spike) {
 				health.GetComponent<HealthBar>().empty ();
 				died ();
+			}
+			if(other.GetComponent<IceBall>() != null){
+				if(!immune && immunity_start < Time.time){
+					enemy_collision = true;
+					// 4 damage
+					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
+					immunity_start = Time.time + collision_duration;
+					sounds[1].Play ();
+				}
 			}
 		}
 		

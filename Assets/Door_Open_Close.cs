@@ -4,10 +4,13 @@ using System.Collections;
 public class Door_Open_Close : MonoBehaviour {
 	GameObject mega_man;
 	bool done, done1, done2, done3, done4;
+	float move_to_pos;
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
 		done = done1 = done2 = done3 = done4 = false;
+		if(Application.loadedLevel == 1) move_to_pos = 143.05f;
+		else move_to_pos = 115.72f;
 	}
 
 
@@ -19,13 +22,13 @@ public class Door_Open_Close : MonoBehaviour {
 	
 
 	void FixedUpdate () {
-		if(!done2 && done1 && mega_man.transform.position.x < 143.05f){
+		if(!done2 && done1 && mega_man.transform.position.x < move_to_pos){
 			Vector3 temp = mega_man.transform.position;
 			temp.x += 2f * Time.deltaTime;
 			mega_man.transform.position = temp;
 			StopCoroutine(open_and_push());
 		} 
-		if(!done2 && done1 && mega_man.transform.position.x >= 143.05f) done2 = true;
+		if(!done2 && done1 && mega_man.transform.position.x >= move_to_pos) done2 = true;
 		if (done && done1 && done2 && !done3){
 			StartCoroutine(close_and_push());
 			done3 = true;
@@ -70,6 +73,8 @@ public class Door_Open_Close : MonoBehaviour {
 			if(i >= 0) door_bars[i].material.color = new Color(1f, 1f, 1f, 1f);
 			yield return new WaitForSeconds(0.18f);
 		}
+		mega_man.GetComponents<AudioSource> () [0].Stop ();
+		GetComponents<AudioSource> () [1].Play ();
 		done4 = true;
 		yield return null;
 	}

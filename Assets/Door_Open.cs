@@ -4,21 +4,24 @@ using System.Collections;
 public class Door_Open : MonoBehaviour {
 	GameObject mega_man;
 	bool done, done1, done3, should_push;
+	float move_to_pos;
 	// Use this for initialization
 	void Start () {
 		mega_man = GameObject.Find ("Mega Man");
 		done = false;
 		done1 = false;
 		done3 = false;
+		if(Application.loadedLevel == 1) move_to_pos = 135.4f;
+		else move_to_pos = 108.4f;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(!done3 && done1 && mega_man.transform.position.x < 135.4f){
+		if(!done3 && done1 && mega_man.transform.position.x < move_to_pos){
 			Vector3 temp = mega_man.transform.position;
 			temp.x += 2f * Time.deltaTime;
 			mega_man.transform.position = temp;
-		} if(!done3 && done1 && mega_man.transform.position.x >= 135.4f) done3 = true;
+		} if(!done3 && done1 && mega_man.transform.position.x >= move_to_pos) done3 = true;
 	}
 
 	void OnTriggerStay(Collider other){

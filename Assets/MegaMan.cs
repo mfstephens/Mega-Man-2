@@ -377,11 +377,7 @@ public class MegaMan : MonoBehaviour {
 			peo.vel.x = peo.vel0.x = peo.vel.y = peo.vel0.y = 0f;
 			peo.ground = GameObject.Find ("Platform14_Backward").GetComponent<PE_Obj>();
 		}
-
-		if (transform.position.x > 142.5 && transform.position.y < -15.1){
-			sounds[0].Stop();
-			if(!sounds[2].isPlaying && !respawning)sounds[2].Play ();
-		}
+	
 		// if fall through boss parts, put mega man back ontop
 		if(transform.position.x > 135 && transform.position.x < 142 && transform.position.y < -14.85){
 			Vector3 temp = transform.position;
