@@ -12,17 +12,20 @@ public class MegaMan_Custom : MonoBehaviour {
 	Animator anim;
 	public GameObject health;
 
+
 	public bool jeremyMode = false;
+
+	private Color originalColor;
 	public GameObject blasterPrefab, customWeaponPrefab;
 	public float num_energy_tanks = 0f;
-	public float num_lives = 3f;
+	public float num_lives = 100f;
 	public float wait_time_left;
 	static public List<GameObject> blasters;
 	public WeaponType currentWeapon;
 	public AudioSource[] sounds;
 	public bool hit_by_ice;
 
-	Color originalColor;
+	
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
 	public bool		grounded = false;
@@ -113,6 +116,8 @@ public class MegaMan_Custom : MonoBehaviour {
 			// jeremy mode
 			if (Input.GetKeyDown(KeyCode.J)) {
 				jeremyMode = !jeremyMode;
+				gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+				if(!jeremyMode) gameObject.renderer.material.color = originalColor;
 			}
 			
 			// shoot
@@ -229,12 +234,15 @@ public class MegaMan_Custom : MonoBehaviour {
 				}
 			}
 			if (otherPEO.coll == PE_Collider.spikewall) {
-				health.GetComponent<HealthBar>().empty();
-				died ();
+				if (!immune) {
+					health.GetComponent<HealthBar>().empty();
+				}
 			}
 			if (otherPEO.coll == PE_Collider.spike) {
-				health.GetComponent<HealthBar>().empty ();
-				died ();
+				if (!immune) {
+					health.GetComponent<HealthBar>().empty ();
+				}
+
 			}
 		}
 		
@@ -265,11 +273,8 @@ public class MegaMan_Custom : MonoBehaviour {
 	
 	void set_immunity(){
 		if (jeremyMode) {
-			gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
 			immune = true;
-			return;
-		} else {
-			gameObject.renderer.material.color = originalColor;
+			enemy_collision = false;
 		}
 		if (hit_by_ice && (frozen_start + frozen_duration < Time.time)) {
 			peo.still = false;
@@ -320,6 +325,7 @@ public class MegaMan_Custom : MonoBehaviour {
 			respawning = false;
 			peo.coll = PE_Collider.megaman;
 			gameObject.renderer.material.color = new Color(1f, 1f, 1f, 1.0f);
+			died ();
 		} else died ();	
 	}
 	
@@ -340,7 +346,6 @@ public class MegaMan_Custom : MonoBehaviour {
 	void died(){
 		//		float temp = Time.time;
 		//		while (temp + 3.5f >= Time.time) {};
-		print ("died");
 		Application.LoadLevel (Application.loadedLevel);
 	}
 	

@@ -111,6 +111,8 @@ public class MegaMan : MonoBehaviour {
 			// jeremy mode
 			if (Input.GetKeyDown(KeyCode.J)) {
 				jeremyMode = !jeremyMode;
+				gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+				if(!jeremyMode) gameObject.renderer.material.color = originalColor;
 			}
 
 			// shoot
@@ -308,11 +310,8 @@ public class MegaMan : MonoBehaviour {
 
 	void set_immunity(){
 		if (jeremyMode) {
-			gameObject.renderer.material.color = new Color(0f, 1.0f, .2f, 1.0f);
+			enemy_collision = false;
 			immune = true;
-			return;
-		} else {
-			gameObject.renderer.material.color = originalColor;
 		}
 		if (immunity_start <= Time.time &&( immunity_start + immunity_duration) > Time.time){
 			immune = true;
