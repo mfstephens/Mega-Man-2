@@ -5,9 +5,10 @@ using System.Collections.Generic;
 
 public class MegaMan_Custom : MonoBehaviour {
 	PE_Obj peo;
-	bool facingRight, jumping, enemy_collision, immune, coroutine, respawning, hit_by_ice;
+	bool facingRight, jumping, enemy_collision, immune, coroutine, respawning;
 	float jump_start, shoot_start, immunity_start, flash_start, start_wait, collision_anim, respawn_wait_time;
-	Vector3 spawn1, spawn2, spawn3;
+	float frozen_start, frozen_duration;
+	Vector3 spawn1, spawn2;
 	Animator anim;
 	public GameObject health;
 	
@@ -18,7 +19,7 @@ public class MegaMan_Custom : MonoBehaviour {
 	static public List<GameObject> blasters;
 	public WeaponType currentWeapon;
 	public AudioSource[] sounds;
-	
+	public bool hit_by_ice;
 
 	public Vector3	vel;
 	public float    displacementVelX = 0f;
@@ -51,13 +52,14 @@ public class MegaMan_Custom : MonoBehaviour {
 		immunity_start = -4f;
 		blasters = new List<GameObject>();
 		no_movement = respawning = false;
-		start_wait= 0f;
+		start_wait = 0f;
+		frozen_start = 0f;
+		frozen_duration = 1.5f;
 		respawn_wait_time = 4.3f;
 		collision_anim = .4f;
 		coroutine = false;
-		spawn1.Set (-.3f, 1.32f, -3f);
-		spawn2.Set (66.72f, -16.2f, -3f);
-		spawn3.Set (138.5f, -14.78f, -3.1f);
+		spawn1.Set (.05f, -1.32f, -4f);
+		spawn2.Set (111.27f, -.7f, -4f);
 	}
 	
 	// Update is called once per frame
@@ -180,6 +182,27 @@ public class MegaMan_Custom : MonoBehaviour {
 				no_movement = true;
 				return;
 			}
+			if(other.GetComponent<IceBall>() != null){
+				if(!immune && immunity_start < Time.time){
+					if(other.GetComponent<IceBall>().stomp) {
+						enemy_collision = true;
+						// 6 damage
+						for(int i = 0; i < 6; i++) health.GetComponent<HealthBar>().decreaseByOne();
+						immunity_start = Time.time + collision_duration;
+						sounds[1].Play ();
+						return;
+					} else{
+						for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
+						sounds[1].Play ();
+						no_movement = true;
+						peo.still = true;
+						frozen_start = Time.time;
+						hit_by_ice = true;
+						gameObject.renderer.material.color = new Color(1f, 2.2f, 1f, 1.0f);
+						return;
+					}
+				}
+			}
 		}
 		
 		if (GetComponent<PE_Obj>().still) return; //still is set when picking up health pellets, and no damage should be taken while frozen
@@ -200,15 +223,6 @@ public class MegaMan_Custom : MonoBehaviour {
 			if (otherPEO.coll == PE_Collider.spike) {
 				health.GetComponent<HealthBar>().empty ();
 				died ();
-			}
-			if(other.GetComponent<IceBall>() != null){
-				if(!immune && immunity_start < Time.time){
-					enemy_collision = true;
-					// 4 damage
-					for(int i = 0; i < 4; i++) health.GetComponent<HealthBar>().decreaseByOne();
-					immunity_start = Time.time + collision_duration;
-					sounds[1].Play ();
-				}
 			}
 		}
 		
@@ -238,6 +252,11 @@ public class MegaMan_Custom : MonoBehaviour {
 	}
 	
 	void set_immunity(){
+		if (hit_by_ice && (frozen_start + frozen_duration < Time.time)) {
+			peo.still = false;
+			no_movement = false;
+			gameObject.renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			}
 		if (immunity_start <= Time.time &&( immunity_start + immunity_duration) > Time.time){
 			immune = true;
 			no_movement = false;
@@ -248,9 +267,7 @@ public class MegaMan_Custom : MonoBehaviour {
 	
 
 	void check_health_lives_and_respawn_or_die(){
-	/*	if((transform.position.x < 65.38 && transform.position.y < -4)
-		   || (transform.position.x < 130 && transform.position.y < -19)
-		   || (transform.position.x < 160 && transform.position.y < -19)) goto start_resp;
+		if(transform.position.y < -4) goto start_resp;
 		if (health.GetComponent<HealthBar>().healthUnits.Count > 0) return;
 	start_resp:
 		if (num_lives > 0 && !respawning) {
@@ -269,20 +286,15 @@ public class MegaMan_Custom : MonoBehaviour {
 		} 
 		else if(respawning && start_wait + respawn_wait_time > Time.time) return;
 		else if(respawning && start_wait + respawn_wait_time < Time.time){
-			if(transform.position.x < 74 && transform.position.x > -5){
+			if(transform.position.x < 98){
 				transform.position = spawn1;
 				peo._pos0 = spawn1;
 				peo._pos1 = spawn1;
 			}
-			else if(transform.position.x >= 74 && transform.position.x < 130){
+			else{
 				transform.position = spawn2;
 				peo._pos0 = spawn2;
 				peo._pos1 = spawn2;
-			}
-			else if(transform.position.x >= 130 && transform.position.x < 160){
-				transform.position = spawn3;
-				peo._pos0 = spawn3;
-				peo._pos1 = spawn3;
 			}
 			sounds[0].Play ();
 			health.GetComponent<HealthBar>().increaseByAmount(28);
@@ -291,7 +303,7 @@ public class MegaMan_Custom : MonoBehaviour {
 			respawning = false;
 			peo.coll = PE_Collider.megaman;
 			gameObject.renderer.material.color = new Color(1f, 1f, 1f, 1.0f);
-		} else died ();	*/
+		} else died ();	
 	}
 	
 	

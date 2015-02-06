@@ -6,13 +6,13 @@ public class IceBall : MonoBehaviour {
 	public float	horzExtent, velX, velY;
 	public bool stomp;
 	GameObject 	mega_man, custom_boss;
-	public float rate = 4.5f, y_rate, x_rate, wait_time, wait_time_start;
+	public float rate = 2.3f, y_rate, x_rate, wait_time, wait_time_start;
 	// Use this for initialization
 	
 	void Awake(){
 		horzExtent = (Camera.main.orthographicSize * Screen.width / Screen.height);
 		mega_man = GameObject.Find ("Mega Man");
-		custom_boss = GameObject.Find ("Boss_custom");
+		custom_boss = GameObject.Find ("Boss_Custom");
 		wait_time = .2f;
 		wait_time_start = Time.time;
 		if(stomp){
@@ -30,10 +30,10 @@ public class IceBall : MonoBehaviour {
 			Vector3 end_of_face = custom_boss.transform.position;		
 			// boss is facing forwards
 			if (custom_boss.transform.eulerAngles.y != 0) {
-				end_of_face.x += .25f;
+				end_of_face.x -= .4f;
 				end_of_face.y += .37f;
 			} else {
-				end_of_face.x += -.25f;
+				end_of_face.x += .4f;
 				end_of_face.y += .37f;
 			}
 			transform.position = end_of_face;
@@ -42,12 +42,10 @@ public class IceBall : MonoBehaviour {
 			float y_dist = mega_man.transform.position.y - end_of_face.y;
 			float angle = (Mathf.Atan(y_dist / x_dist));
 			if(mega_man.transform.position.x <= transform.position.x){
-				transform.GetComponent<Spin_razor>().is_left = true;
 				y_rate = (-rate * Mathf.Sin(angle));
 				x_rate = (-rate * Mathf.Cos(angle));
 			}
 			else if(mega_man.transform.position.x > transform.position.x){
-				transform.GetComponent<Spin_razor>().is_left = false;
 				y_rate = (rate * Mathf.Sin(angle));
 				x_rate = (rate * Mathf.Cos(angle));
 			}

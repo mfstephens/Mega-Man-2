@@ -18,13 +18,13 @@ public class Custom_Boss_Handler : MonoBehaviour {
 	
 	void Start(){
 		hp = 28f;
-		move_speed = 1.3f;
+		move_speed = .2f;
 		iceballs = new List<GameObject>();
 		peo_boss = transform.GetComponent<PE_Obj> ();
 		mega_man = GameObject.Find ("Mega Man");
 		anim = GetComponent<Animator> ();
 		hp_fill_start = 0f;
-		hp_fill_end = (.075f * 28f);
+		hp_fill_end = (.18f * 28f);
 		start = done = false;
 		health_bar = GameObject.Find("Health Bar Boss").gameObject;
 		additional_random_shot = false;
@@ -48,26 +48,27 @@ public class Custom_Boss_Handler : MonoBehaviour {
 		}
 		if (mega_man.transform.position.x > 115.5 && mega_man.transform.position.y <= -2.36 && !done) {
 			done = start_routine();
-			last_shot = Time.time + .2f;
+			last_shot = Time.time + 1f;
 			return;
 		}
-		else {
+		else if(done) {
+			anim.SetBool("Taunt", false);
 			if(stuck == true) {stuck_start = Time.time; anim.SetBool("Stuck", true); peo_boss.vel.x = 0f;}
 			if(shoot_duration + shoot_start < Time.time){ anim.SetBool("Shooting", false); shooting = false;}
 			if(stomp_duration + stomp_start < Time.time) {anim.SetBool("Stomp", false); stomping = false;}
 			if(stuck_duration + stuck_start < Time.time) {anim.SetBool("Stuck", false); stuck = false;}
 
-			if (done && ((last_shot + time_btwn_shoot <= Time.time) || (additional_random_shot && last_shot + shoot_duration < Time.time))) {
+			if (((last_shot + time_btwn_shoot <= Time.time) || (additional_random_shot && last_shot + shoot_duration < Time.time))) {
 				iceballs.Add(Instantiate(IceBallPrefab) as GameObject);
 				peo_boss.vel.x = 0f;
 				anim.SetBool("Shooting", true);
 				last_shot = Time.time;
 				float random = Random.Range(0,6);
-				if(random >= 3 && iceballs.Count < 3) additional_random_shot = true;
+				if(random >= 3 && iceballs.Count <= 1 && !mega_man.GetComponent<MegaMan_Custom>().hit_by_ice) additional_random_shot = true;
 				else additional_random_shot = false;
 			}
-			else if(done && Mathf.Abs(mega_man.transform.position.x - transform.position.x) <= 1.3f){
-				if(mega_man.transform.position.y <= -1.9){
+			else if(Mathf.Abs(mega_man.transform.position.x - transform.position.x) <= 1.3f){
+				if(mega_man.transform.position.y <= -1.9 && !stomping && !shooting){
 					GameObject temp = Instantiate(IceBallPrefab) as GameObject;
 					temp.GetComponent<IceBall>().stomp = true;
 					anim.SetBool("Stomp", true);
@@ -76,7 +77,7 @@ public class Custom_Boss_Handler : MonoBehaviour {
 				}
 				
 			}
-			else if(done && MegaMan_Custom.blasters.Count >= 1 && !stuck){
+			else if(MegaMan_Custom.blasters.Count >= 1 && !stuck){
 				foreach(GameObject b in MegaMan_Custom.blasters){
 					if(Mathf.Abs(b.transform.position.x - transform.position.x) <= 1.5f){
 						deflecting = true;
@@ -85,32 +86,31 @@ public class Custom_Boss_Handler : MonoBehaviour {
 					}
 				}
 			}
-
-		}
-
-		if (stuck || shooting || stomping) deflecting = false;
-
-		if (flashing && flash_duration + flash_start < Time.time) {
-			StartCoroutine (flash ());
-			flash_start = Time.time;
-		}
-		if (flash_duration + flash_start < Time.time) flashing = false;
-		if(mega_man.transform.position.x <= transform.position.x){
-			transform.eulerAngles = new Vector3 (0, 180, 0);
-			if (!stuck && !shooting && !deflecting && !stomping){
-				peo_boss.vel.x = move_speed;
+			if (stuck || shooting || stomping) deflecting = false;
+			
+			if (flashing && flash_duration + flash_start < Time.time) {
+				StartCoroutine (flash ());
+				flash_start = Time.time;
 			}
-		}
-		if(mega_man.transform.position.x > transform.position.x){
-			transform.eulerAngles = new Vector3 (0, 0, 0);
-			if (!stuck && !shooting && !deflecting && !stomping){
-				peo_boss.vel.x = move_speed;
+			if (flash_duration + flash_start < Time.time) flashing = false;
+			if(done && mega_man.transform.position.x <= transform.position.x){
+				transform.eulerAngles = new Vector3 (0, 180, 0);
+				if (!stuck && !shooting && !deflecting && !stomping){
+					peo_boss.vel.x = -move_speed;
+				}
 			}
-		}
-		if (health_bar.GetComponent<HealthBarBoss>().healthUnits.Count <= 0 && done) {
-			peo_boss.vel.x = 0f;
-			dead = true;
-			StartCoroutine(flash_bright());
+			if(mega_man.transform.position.x > transform.position.x){
+				transform.eulerAngles = new Vector3 (0, 0, 0);
+				if (!stuck && !shooting && !deflecting && !stomping){
+					peo_boss.vel.x = move_speed;
+				}
+			}
+			if (health_bar.GetComponent<HealthBarBoss>().healthUnits.Count <= 0) {
+				peo_boss.vel.x = 0f;
+				dead = true;
+				StartCoroutine(flash_bright());
+			}
+			anim.SetFloat("Speed", Mathf.Abs(peo_boss.vel.x));
 		}
 		
 	}
@@ -159,7 +159,6 @@ public class Custom_Boss_Handler : MonoBehaviour {
 		for(int i = 0; i < 28f; i++) {
 			health_bar.GetComponent<HealthBarBoss>().increaseByOne();
 			yield return new WaitForSeconds(.08f);
-			anim.SetBool("Taunt", false);
 		}
 	}
 	

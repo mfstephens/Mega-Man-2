@@ -66,9 +66,9 @@ public class FollowCam_Custom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update(){
+		mega_man_pos = mega_man.transform.position;
 		
-		
-		if (shake > 0) {
+		if (shake > 0 && mega_man_pos.x < 10) {
 			Vector3 random = Random.insideUnitSphere * shakeAmount;
 			random.z = -100f;
 			transform.position = random;
@@ -77,11 +77,10 @@ public class FollowCam_Custom : MonoBehaviour {
 			shake = 0f;
 		}
 		
-		// Get the position of mega man
-		mega_man_pos = mega_man.transform.position;
+
 		// Cam follow for top level
 		if (mega_man_pos.x <= 0.000)return;
-		if (mega_man_pos.x < 200&& mega_man_pos.y >= -2.9) Set_cam_x (mega_man_pos);
+		if (mega_man_pos.x < 103.18 && mega_man_pos.y >= -2.9) Set_cam_x (mega_man_pos);
 		//		if (mega_man_pos.x >= 69.11 && mega_man_pos.y >= -2.9) return;
 //
 //		if (mega_man_pos.y >= -3.93){
@@ -92,7 +91,29 @@ public class FollowCam_Custom : MonoBehaviour {
 //		}
 
 
-		
+
+
+
+		if (mega_man_pos.x >= 103.19 && mega_man_pos.x < 106.39)return;
+		if (mega_man_pos.x > 106.42 && mega_man_pos.x < 108.82 && transform.position.x < 111) {
+			Vector3 temp = transform.position;
+			temp.x += 8f * Time.deltaTime;
+			transform.position = temp;
+		}
+		if (mega_man_pos.x > 110 && mega_man_pos.x < 114.95) {
+			Vector3 temp = transform.position;
+			temp.x = 111.1f;
+			temp.y = 0f;
+			transform.position = temp;
+		}
+		if (mega_man_pos.x > 114.95 && transform.position.x < 118.7) {
+			Vector3 temp = transform.position;
+			temp.x += 8f * Time.deltaTime;
+			transform.position = temp;
+		}
+		if(mega_man_pos.x > 119) Set_cam_x(mega_man_pos);
+
+
 		
 	}
 
